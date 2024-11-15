@@ -1,0 +1,60 @@
+html {
+	line-height: 1.1;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+body {
+	background: url(../content-img/bg.webp) 100% 10% no-repeat;
+}
+
+main {
+
+}
+
+h1 {
+
+}
+
+button, input, optgroup, select, textarea {
+}
+
+button, input {
+}
+
+canvas {
+	background-size:cover;
+	width:100%;
+	height:auto;
+}
+
+@font-face {
+	font-family: 'Prompt';
+	src: url('../fonts/prompt-regular.woff2') format('woff2'),
+	url('../fonts/prompt-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+a {
+
+}
+
+.canvas {
+	max-width: 650px;
+}
+
+@media(max-width: 1450px) {
+
+}
