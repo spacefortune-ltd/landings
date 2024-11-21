@@ -1,11 +1,11 @@
-const {Engine, Render, Runner, Bodies, Composite, Events} = Matter;
+const { Engine, Render, Runner, Bodies, Composite, Events } = Matter;
 
-const worldWidth = 500;
-const startPins = 3;
-const pinLines = 7;
-const pinSize = 5;
-const pinGap = 50;
-const ballSize = 10;
+const worldWidth = 650;
+const startPins = 2;
+const pinLines = 8;
+const pinSize = 7;
+const pinGap = 63;
+const ballSize = 17;
 
 var engine = Engine.create();
 
@@ -13,8 +13,8 @@ var render = Render.create({
     element: document.querySelector('.canvas'),
     engine: engine,
     options: {
-        width: 500,
-        height: 500,
+        width: 600,
+        height: 580,
         wireframes: false,
         background: null,
     },
@@ -32,7 +32,7 @@ for (let l = 0; l < pinLines; l++) {
             {
                 isStatic: true,
                 render: {
-                    fillStyle: "red",
+                    fillStyle: "white",
                 },
             }
         );
@@ -41,26 +41,57 @@ for (let l = 0; l < pinLines; l++) {
 }
 Composite.add(engine.world, pins);
 
+const balls = [];
+
+Events.on(engine, "collisionStart", (event) => {
+    const pairs = event.pairs;
+
+    pairs.forEach((pair) => {
+        const { bodyA, bodyB } = pair;
+
+        const ball = balls.find((b) => b === bodyA || b === bodyB);
+        if (ball) {
+            const pin = bodyA === ball ? bodyB : bodyA;
+
+            if (pin.render.fillStyle === "white") {
+                pin.render.fillStyle = "#E0319C";
+
+                setTimeout(() => {
+                    pin.render.fillStyle = "white";
+                }, 300);
+            }
+        }
+    });
+});
+
 Render.run(render);
 
 var runner = Runner.create();
-
 Runner.run(runner, engine);
 
 document.querySelector("button").addEventListener("click", function clickHandler() {
     document.querySelector("button").removeEventListener("click", clickHandler);
-
+    document.querySelector("button").disabled = true;
     for (let t = 0; t < 5; t++) {
         setTimeout(() => {
-            const ball = Bodies.circle(370 + (t * 0.5), 0, ballSize, {
-                restitution: 0.75,
-                render: { fillStyle: "blue" },
+            const delta = [2, -2, 1, -1, 0];
+            const ball = Bodies.circle(292.5 + (delta[t] * 1), 50, ballSize, {
+                restitution: 0.52,
+                render: {
+                    sprite: {
+                        texture: "content-img/ball.png",
+                        xScale: 0.07,
+                        yScale: 0.07,
+                    },
+                },
             });
+            balls.push(ball);
             Composite.add(engine.world, ball);
-        }, t * 1000);
+        }, t * 1200);
     }
 
     setTimeout(() => {
-        document.body.addEventListener("click", clickHandler);
+        document.querySelector("button").addEventListener("click", clickHandler);
+        document.querySelector("button").disabled = false;
     }, 5000);
 });
