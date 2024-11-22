@@ -40,6 +40,34 @@
 	font-style: normal;
 }
 
+@keyframes go_button {
+	0% {
+		background: linear-gradient(90deg, #FD5E09 0%, #FD5E09 0.01%, #FD5E09 100%);
+	}
+	72% {
+		background: linear-gradient(90deg, #FD5E09 0%, #FD5E09 0.01%, #FD5E09 100%);
+	}
+	77% {
+		background: linear-gradient(90deg, #FD9B09 0%, #FDE509 34.5%, #FD5E09 100%);
+	}
+	82% {
+		background: linear-gradient(90deg, #FDAC09 0%, #FCE00E 55.63%, #FD5E09 100%);
+	}
+	88% {
+		background: linear-gradient(90deg, #FCD00D 0%, #F29D59 100%, #05B761 100%);
+	}
+	92% {
+		background: linear-gradient(90deg, #FDA809 0%, #FCDB0E 99.99%, #FDAB09 100%);
+	}
+	96% {
+		background: linear-gradient(90deg, #FD5E09 49.59%, #FDB80B 99.99%, #FCD90E 100%);
+	}
+	100% {
+		background: linear-gradient(90deg, #FD5E09 0%, #FD5E09 0.01%, #FD5E09 100%);
+	}
+}
+
+
 html {
 	line-height: 1.1;
 	letter-spacing: -0.03em;
@@ -62,8 +90,10 @@ img {
 body {
 	background: url(../content-img/bg.png) 100% 0 no-repeat;
 	font-family: Montserrat, sans-serif;
-	height: 100vh;
+	min-height: 100vh;
+	position: relative;
 }
+
 
 @supports (background-image: url("data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoEAAQAAAIoJlpA/9k=")) {
 	body {
@@ -91,6 +121,10 @@ a {
 	text-decoration:none;
 }
 
+.canvas {
+	max-width: 650px;
+}
+
 .container {
 	max-width:1170px;
 	padding:0 10px;
@@ -106,7 +140,7 @@ a {
 .header > .container {
 	display:flex;
 	align-items:center;
-	justify-content: space-between;
+	justify-content:space-between;
 }
 
 .header img {
@@ -138,14 +172,22 @@ a {
 	align-items:center;
 }
 
+body.modal .main {
+	overflow:hidden;
+}
+
 .bonus-info {
-	max-width: 45%;
+	width: calc(50% - 15px);
 	display:flex;
 	flex-direction:column;
 	align-items:center;
 	color:#FFFFFF;
 	letter-spacing: -0.02em;
-	margin-right: 30px;
+	transition: transform 0.2s ease-in-out;
+}
+
+body.modal  .bonus-info {
+	transform: translateX(-200%);
 }
 
 .bonus-info img {
@@ -160,7 +202,7 @@ a {
 }
 
 .bonus-info .aud {
-	text-shadow: 0px 5px 4px 0px #FFFFFF33;
+	text-shadow: 0px 5px 4px #FFFFFF33;
 	background: linear-gradient(180deg, #FFC90A 0%, #F89B1C 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -181,24 +223,236 @@ a {
 }
 
 .canvas-section {
-	max-width: 55%;
-	margin-left: 30px;
+	transition: transform 0.2s ease-in-out;
+	width: calc(50% - 15px);
+	margin: 0 0 0 30px;
 }
 
-.canvas {
-	max-width: 600px;
+body.modal  .canvas-section {
+	transform: translateX(200%);
 }
+
+.bowls {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin-top:-16px;
+}
+.bowl {
+	max-width: 11%;
+	text-align:center;
+}
+
+.bowl .x {
+	margin: 6px 0 0 0;
+	padding: 3px 8px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 14px;
+	letter-spacing: -0.03em;
+	color: #FFFFFF;
+	background: #FFFFFF29;
+	box-shadow: 0px 0px 30px 0px #00000054;
+	display: inline-block;
+	border-radius: 6px;
+}
+
+.bowl .x.active {
+	padding:4px 8px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: -0.03em;
+	text-align: center;
+	background: #E32D9A;
+	margin: -2px;
+}
+
+
+.play-btn {
+	margin:40px auto;
+	border-radius:12px;
+	background: linear-gradient(90deg, #FD5E09 0%, #FD5E09 0.01%, #FD5E09 100%);
+	padding:18px 100px;
+	border: unset;
+	display:block;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color:#FFFFFF;
+	cursor:pointer;
+	animation: go_button 2s ease-in infinite;
+}
+
+.play-btn:disabled {
+	opacity:0.7;
+	animation-play-state: paused;
+}
+
+.popup {
+	background: linear-gradient(0deg, #09184F, #09184F), radial-gradient(46.54% 28.7% at 50% 22.31%, rgba(142, 86, 255, 0.15) 0%, rgba(9, 24, 79, 0.15) 100%);
+	box-shadow: 0px 0px 50px 0px #306D9573;
+	padding: 40px;
+	border-radius: 20px;
+	text-align: center;
+	max-height:0;
+	visibility:hidden;
+	opacity:0;
+	transform: translate(-50%,-200%);
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index: 2;
+	width:50%;
+	max-width: 600px;
+	transition: all 0.3s ease-in-out;
+}
+
+body.modal .popup {
+	max-height:1000px;
+	visibility:visible;
+	opacity:1;
+	transform: translate(-50%,-50%);
+}
+
+.popup .congrat {
+	font-size: 30px;
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	text-align: center;
+	color: #FCB215;
+	position:relative;
+	display:inline;
+}
+
+.popup .congrat:after {
+	position: absolute;
+	width: 90%;
+	height:1px;
+	content:"";
+	background: linear-gradient(90deg, #09184F 0%, #324488 48.5%, #09184F 100%);
+	bottom: -14px;
+	left: 5%;
+}
+
+.popup .win {
+	margin-top:30px;
+	color: #6975A4;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.popup .prize {
+	font-size: 50px;
+	font-weight: 800;
+	line-height: 50px;
+	letter-spacing: -0.02em;
+	text-align: center;
+	color: #FFFFFF;
+	margin: 5px 0 20px 0;
+}
+
+.popup a {
+	padding:18px 60px;
+	background: #FCB215;
+	border-radius:10px;
+	font-size: 14px;
+	font-weight: 700;
+	color:#13235E;
+	display:inline-block;
+}
+
+.popup a:hover {
+	background: #FF8800;
+}
+
+@media(max-width: 1000px) {
+	.main .container {
+		flex-direction: column;
+	}
+	.bonus-info img {
+		max-width: 175px;
+		margin: 12px 0 20px 0;
+	}
+	.bonus-info .type {
+		font-size: 24px;
+	}
+	.bonus-info .aud {
+		font-size: 60px;
+	}
+	.bonus-info .spin {
+		margin-bottom: 12px;
+		font-size: 30px;
+	}
+	.bonus-info .text {
+		font-size: 14px;
+	}
+	.play-btn {
+		margin:15px auto;
+	}
+	.bonus-info {
+		width:100%;
+	}
+	.canvas-section {
+		width:80%;
+		margin:0;
+	}
+	.canvas {
+		max-width:unset;
+	}
+
+	.popup {
+		width:calc(100% - 40px);
+		max-width: 390px;
+	}
+
+	.popup .congrat {
+		font-size: 20px;
+	}
+
+	.popup .win {
+		margin-top:15px;
+		font-size: 18px;
+	}
+
+	.popup .prize {
+		font-size: 30px;
+		line-height: 30px;
+	}
+
+	.popup a {
+		width:100%;
+		padding:18px;
+	}
+
+}
+
 
 @media(max-width: 700px) {
 	body {
 		background-size: cover;
-		background: url(../content-img/bg-mob.png) no-repeat calc(50% + 70px) 0;
+		background: url(../content-img/bg-mob.png) no-repeat;
 	}
 
-	@supports (background-image: url("data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoEAAQAAAIoJlpA/9k=")) {
-		body {
-			background-size: cover;
-			background: url(../content-img/bg-mob.webp) no-repeat calc(50% + 70px) 0;
-		}
+	.canvas-section {
+		width:100%;
+	}
+
+	body.modal .popup {
+		transform: translate(-50%, 0);
+		top: 100px;
+	}
+
+}
+
+@media(max-width: 500px) {
+	.bowl .x {
+		font-size: 8px;
+		line-height: 9px;
+	}
+	.bowl .x.active {
+		font-size: 10px;
+		line-height: 11px;
 	}
 }
