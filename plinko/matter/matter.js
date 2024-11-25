@@ -46,7 +46,34 @@ for (let l = 0; l < pinLines; l++) {
         pins.push(pin);
     }
 }
+
+const falePin = Bodies.circle(
+    420,
+    460,
+    5,
+    {
+        isStatic: true,
+        render: {
+            fillStyle: "black",
+        },
+    }
+);
+pins.push(falePin);
+const falePin2 = Bodies.circle(
+    480,
+    585,
+    5,
+    {
+        isStatic: true,
+        render: {
+            fillStyle: "black",
+        },
+    }
+);
+pins.push(falePin2);
+
 Composite.add(engine.world, pins);
+
 
 // Add a visual hole at the top
 const holeX = 294; // Center of the hole
@@ -83,7 +110,7 @@ document.querySelector("button").addEventListener("click", function clickHandler
 
     for (let t = 0; t < 5; t++) {
         setTimeout(() => {
-            const delta = [0.4, -0.4, 0.8, -0.8 , 1.1];
+            const delta = [0.8, -0.3, 0.4, -0.8 , 1.1];
             // Position ball at the exact center of the hole (start straight down)
             const ball = Bodies.circle(holeX + delta[t], holeY, ballSize, {
                 restitution: 0.53, // Slight bounce

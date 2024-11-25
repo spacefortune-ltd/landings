@@ -4,6 +4,36 @@
 	margin: 0;
 	padding: 0
 }
+img {
+	max-width: 100%;
+	height:auto;
+	object-fit:cover;
+}
+header {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+header img {
+	padding:15px 0;
+}
+header a {
+	position: absolute;
+	right:15px;
+	display:inline-flex;
+	justify-content:center;
+	align-items:center;
+	text-decoration:none;
+	box-shadow: 0px 0px 10px 0px #00000080;
+	background: #FFFFFF;
+	padding:14px 20px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 14px;
+	color:#FA5E1B;
+	border-radius:12px;
+	vertical-align:top;
+}
 .hide {
 	display: none !important;
 }
@@ -41,7 +71,7 @@ body {
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
-	font-family: Montserrat, sans-serif;
+	font-family: Mulish, sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
 	font-weight: 400
@@ -169,8 +199,6 @@ button {
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	min-height: 100vh;
-	padding-bottom: 2.5em;
-	padding-top: 4.625em;
 	position: relative
 }
 .rocket-launch-first-screen__bg {
@@ -183,8 +211,6 @@ button {
 .rocket-launch-first-screen__container {
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: -2.9375em;
-	max-width: 120em;
 	position: relative;
 	z-index: 5
 }
@@ -198,9 +224,7 @@ button {
 	display: flex
 }
 .rocket-launch-first-screen-bg:before {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#351774), color-stop(.01%, #39216c), to(#2c184f));
-	background-image: -o-linear-gradient(top, #351774, #39216c .01%, #2c184f);
-	background-image: linear-gradient(180deg, #351774, #39216c .01%, #2c184f);
+	background: radial-gradient(28.13% 68.12% at 50% 50%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 	content: "";
 	height: 100%;
 	left: 0;
@@ -310,16 +334,7 @@ button {
 	-ms-flex-pack: distribute;
 	    justify-content: space-around
 }
-.rocket-launch-first-screen-container__left, .rocket-launch-first-screen-container__right {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	min-width: 31em
-}
+
 .rocket-launch-first-screen-container__info {
 	font-size: 1.25em;
 	font-weight: 800;
@@ -337,9 +352,7 @@ button {
 	width: 19.5em
 }
 .rocket-launch-first-screen-container__wheel {
-	height: 39.25em;
-	margin-top: 9.1875em;
-	width: 39.25em
+
 }
 .rocket-launch-first-screen-container-bonus {
 	-webkit-box-align: center;
@@ -388,7 +401,6 @@ button {
 .rocket-launch-first-screen-title__img {
 	z-index: 100;
 	position: relative;
-	margin: 0 auto;
 	display: block;
 }
 .rocket-launch-first-screen-title__caption {
@@ -408,12 +420,9 @@ button {
 	opacity: 0
 }
 .rocket-launch {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#351774), color-stop(.01%, #39216c), to(#2c184f));
-	background-image: -o-linear-gradient(top, #351774, #39216c .01%, #2c184f);
 	background-image: linear-gradient(180deg, #351774, #39216c .01%, #2c184f);
 	color: #fff;
-	font-family: Montserrat, sans-serif;
-	font-style: italic;
+	font-family: Mulish, sans-serif;
 	overflow: hidden
 }
 .overlay-container {
@@ -618,7 +627,7 @@ button {
 	background-position: center;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	font-family: Montserrat, sans-serif;
+	font-family: Mulish, sans-serif;
 	font-style: italic;
 	min-height: 37.5em;
 	padding: 2.1875em 1.5625em 1.5625em;
@@ -812,12 +821,13 @@ button {
 	-o-transition: transform 3s ease;
 	transition: transform 3s ease;
 	transition: transform 3s ease, -webkit-transform 3s ease;
-	width: 100%
+	width: 100%;
+	max-height: 560px;
 }
 .rocket-launch-drum__wheel--first-prize {
 	-webkit-transform: rotate(2123deg);
 	    -ms-transform: rotate(2123deg);
-	        transform: rotate(2123deg)
+	        transform: rotate(2123deg);
 }
 .rocket-launch-drum__wheel--second-prize {
 	-webkit-transform: rotate(4123deg);
@@ -883,11 +893,21 @@ button {
 	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	    -ms-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%)
+	        transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.rocket-button-row img {
+	text-align:center;
 }
 .rocket-launch-drum__btn {
-	height: 10.8125em;
-	width: 10.8125em
+	max-width:124px;
+	margin: -40px 0 0 0;
+	border: none;
+}
+.rocket-button-row {
+	margin: -35px 0 0 0;
 }
 .rocket-launch-drum-prize {
 	font-weight: 800;
@@ -925,27 +945,12 @@ button {
 	transition: -webkit-filter .2s ease;
 	-o-transition: filter .2s ease;
 	transition: filter .2s ease;
-	transition: filter .2s ease, -webkit-filter .2s ease
+	transition: filter .2s ease, -webkit-filter .2s ease;
+	background:transparent;
 }
 .rocket-launch-drum-btn:hover {
 	-webkit-filter: contrast(130%);
 	        filter: contrast(130%)
-}
-.rocket-launch-drum-btn:before {
-	background-image: url(../images/spin-btn-bg.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-	content: "";
-	height: 110%;
-	left: 50%;
-	pointer-events: none;
-	position: absolute;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	    -ms-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
-	width: 110%
 }
 .rocket-launch-drum-btn:disabled {
 	-webkit-animation: none;
@@ -966,6 +971,22 @@ button {
 [data-count="0"] [data-content-first] {
 	display: none;
 }
+
+div.head-text-banner {
+	padding: 100px 0 80px 0;
+}
+
+.head-text {
+	color:#FFFFFF;
+	font-size: 64px;
+	font-weight: 900;
+	line-height: 80px;
+	text-align: center;
+	background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(180deg, rgba(19, 192, 131, 0) 24.29%, rgba(19, 192, 131, 0.12) 80%);
+	-webkit-background-clip: text;
+	text-shadow: 0px 4px 20px #2CD99C99,0px 4.27px 0px #00000080,-2px -2px 0px #13C083, 2px -2px 0px #058458, -2px 2px 0px #13C083, 2px 2px 0px #058458;
+}
+
 @-webkit-keyframes pulse-anim {
 	0% {
 		-webkit-transform: scale(1);
@@ -986,11 +1007,24 @@ button {
 		        transform: scale(1.02)
 	}
 }
+
+.rocket-launch-first-screen-container__center {
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-ordinal-group: 2;
+	-ms-flex-order: 1;
+	order: 1;
+	max-width: 1410px;
+	padding: 0 15px;
+	position: relative;
+}
+
 @media (min-width:375px) {
 	html {
 		font-size: 16px
 	}
 }
+/*
 @media (max-width:1920px) {
 	.rocket-launch, .rocket-launch-modal-prize {
 		font-size: .83333vw
@@ -1169,20 +1203,8 @@ button {
 		    -ms-flex-pack: justify;
 		        justify-content: space-between
 	}
-	.rocket-launch-first-screen-container__left, .rocket-launch-first-screen-container__right {
-		max-width: 30%;
-		min-width: 30%;
-		-webkit-box-ordinal-group: 1;
-		    -ms-flex-order: 0;
-		        order: 0
-	}
-	.rocket-launch-first-screen-container__center {
-		margin-left: auto;
-		margin-right: auto;
-		-webkit-box-ordinal-group: 2;
-		    -ms-flex-order: 1;
-		        order: 1
-	}
+
+
 	.rocket-launch-first-screen-container__info {
 		font-size: 1em
 	}
@@ -1325,10 +1347,6 @@ button {
 		left: 9%;
 		width: 4em
 	}
-	.rocket-launch-first-screen-container__left, .rocket-launch-first-screen-container__right {
-		max-width: 10.625em;
-		min-width: 10.625em
-	}
 	.rocket-launch-first-screen-container__info {
 		font-size: .75em;
 		margin-top: 1.5em
@@ -1420,16 +1438,6 @@ button {
 		        align-items: center;
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap
-	}
-	.rocket-launch-first-screen-container__left, .rocket-launch-first-screen-container__right {
-		max-width: 46%;
-		min-width: 46%;
-		-webkit-box-ordinal-group: 1;
-		    -ms-flex-order: 0;
-		        order: 0
-	}
-	.rocket-launch-first-screen-container__right {
-		padding-left: 1.25em
 	}
 	.rocket-launch-first-screen-container__center {
 		-webkit-box-ordinal-group: 2;
@@ -1594,21 +1602,6 @@ button {
 		font-size: .875em
 	}
 }
-/* @media (-webkit-min-device-pixel-ratio:1.1) {
-	.rocket-launch-first-screen-container-bonus {
-		background-image: url(../images/bn-bg_2x.png)
-	}
-	.rocket-launch-modal-prize-bonus {
-		background-image: url(../images/bn-bg_2x.png)
-	}
-	.rocket-launch-modal-prize-bonus--is-red {
-		background-image: url(../images/bn-bg-2_2x.png)
-	}
-	.rocket-launch-modal-prize-btn:before {
-		background-image: url(../images/btn-bg_2x.png)
-	}
-	.rocket-launch-drum-btn:before {
-		background-image: url(../images/spin-btn-bg_2x.png)
-	}
-}; */
 
+
+*/
