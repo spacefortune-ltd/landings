@@ -11,8 +11,6 @@ const ballSize = 17;
 // Create the physics engine
 var engine = Engine.create();
 
-
-
 // Setup rendering
 var render = Render.create({
     element: document.querySelector('.canvas'),
@@ -46,34 +44,7 @@ for (let l = 0; l < pinLines; l++) {
         pins.push(pin);
     }
 }
-
-const falePin = Bodies.circle(
-    420,
-    460,
-    5,
-    {
-        isStatic: true,
-        render: {
-            fillStyle: "black",
-        },
-    }
-);
-pins.push(falePin);
-const falePin2 = Bodies.circle(
-    480,
-    585,
-    5,
-    {
-        isStatic: true,
-        render: {
-            fillStyle: "black",
-        },
-    }
-);
-pins.push(falePin2);
-
 Composite.add(engine.world, pins);
-
 
 // Add a visual hole at the top
 const holeX = 294; // Center of the hole
@@ -103,14 +74,24 @@ Composite.add(engine.world, hole);
 // Track balls
 const balls = [];
 
-// Drop balls from the center of the hole
-document.querySelector("button").addEventListener("click", function clickHandler() {
-    document.querySelector("button").removeEventListener("click", clickHandler);
-    document.querySelector("button").disabled = true;
+// Disable the button initially
+const button = document.querySelector("button");
+button.disabled = true;
+
+// Enable the button after the page has fully loaded
+window.addEventListener("load", () => {
+    button.disabled = false;
+});
+
+// Define the click handler
+function clickHandler() {
+    // Remove the click listener to prevent multiple clicks
+    button.removeEventListener("click", clickHandler);
+    button.disabled = true;
 
     for (let t = 0; t < 5; t++) {
         setTimeout(() => {
-            const delta = [0.8, -0.3, 0.4, -0.8 , 1.1];
+            const delta = [0.4, -0.4, 0.8, -0.8, 1.1];
             // Position ball at the exact center of the hole (start straight down)
             const ball = Bodies.circle(holeX + delta[t], holeY, ballSize, {
                 restitution: 0.53, // Slight bounce
@@ -128,15 +109,18 @@ document.querySelector("button").addEventListener("click", function clickHandler
             // Add ball to the world
             balls.push(ball);
             Composite.add(engine.world, ball);
-
         }, t * 1800); // Delay each ball drop
     }
 
-    // Re-enable button after balls are dropped
+    // Re-enable the button after the balls have been dropped
     setTimeout(() => {
-        document.querySelector("button").addEventListener("click", clickHandler);;
+        button.addEventListener("click", clickHandler);
+        button.disabled = false;
     }, 5000);
-});
+}
+
+// Attach the click handler to the button
+button.addEventListener("click", clickHandler);
 
 // Add collision event to change pin color when hit by a ball, but exclude the hole
 Events.on(engine, "collisionStart", (event) => {
@@ -163,7 +147,6 @@ Events.on(engine, "collisionStart", (event) => {
     });
 });
 Events.on(engine, "afterUpdate", () => {
-    const index = [5,4,6,2,7]
     const ballsInField = balls.filter(
         (ball) => ball.position.y < render.options.height + ballSize
     );
@@ -176,7 +159,6 @@ Events.on(engine, "afterUpdate", () => {
     }
 });
 
-
 const index = [6, 7, 5, 3, 8];
 
 // Function to activate the corresponding span based on the current index
@@ -185,6 +167,9 @@ let currentIndex = 0;
 function activateNext() {
     if (currentIndex < index.length) {
         const targetIndex = index[currentIndex];
+        if (targetIndex === 3 && pins[25]) {
+            Matter.Body.setPosition(pins[25], { x: 419, y: pins[25].position.y });
+        }
         const targetSpan = document.querySelector(`.bowls .bowl:nth-child(${targetIndex}) span.x`);
         if (targetSpan) {
             targetSpan.classList.add("active");

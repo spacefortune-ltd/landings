@@ -123,6 +123,8 @@ a {
 
 .canvas {
 	max-width: 650px;
+	position:relative;
+	z-index: 1;
 }
 
 .container {
@@ -237,6 +239,8 @@ body.modal  .canvas-section {
 	align-items:center;
 	justify-content:center;
 	margin-top:-16px;
+	position:relative;
+	z-index: 2;
 }
 .bowl {
 	max-width: 11%;
