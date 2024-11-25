@@ -74,24 +74,13 @@ Composite.add(engine.world, hole);
 // Track balls
 const balls = [];
 
-// Disable the button initially
-const button = document.querySelector("button");
-button.disabled = true;
-
-// Enable the button after the page has fully loaded
-window.addEventListener("load", () => {
-    button.disabled = false;
-});
-
-// Define the click handler
-function clickHandler() {
-    // Remove the click listener to prevent multiple clicks
-    button.removeEventListener("click", clickHandler);
-    button.disabled = true;
+// Drop balls from the center of the hole
+document.querySelector("button").addEventListener("click", function clickHandler() {
+    document.querySelector("button").disabled = true;
 
     for (let t = 0; t < 5; t++) {
         setTimeout(() => {
-            const delta = [0.4, -0.4, 0.8, -0.8, 1.1];
+            const delta = [0.4, -0.4, 0.8, -0.8 , 1.1];
             // Position ball at the exact center of the hole (start straight down)
             const ball = Bodies.circle(holeX + delta[t], holeY, ballSize, {
                 restitution: 0.53, // Slight bounce
@@ -109,18 +98,10 @@ function clickHandler() {
             // Add ball to the world
             balls.push(ball);
             Composite.add(engine.world, ball);
+
         }, t * 1800); // Delay each ball drop
     }
-
-    // Re-enable the button after the balls have been dropped
-    setTimeout(() => {
-        button.addEventListener("click", clickHandler);
-        button.disabled = false;
-    }, 5000);
-}
-
-// Attach the click handler to the button
-button.addEventListener("click", clickHandler);
+});
 
 // Add collision event to change pin color when hit by a ball, but exclude the hole
 Events.on(engine, "collisionStart", (event) => {
