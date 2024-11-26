@@ -135,8 +135,14 @@ Events.on(engine, "afterUpdate", () => {
     // If all balls have left the field
     if (ballsInField.length === 0 && balls.length > 0) {
         setTimeout(() => {
-            document.body.classList.add("modal"); // Add 'modal' class to body
-        }, 1000); // 1-second delay
+            // Smooth scroll to the top
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+            // Add 'modal' class to body
+            document.body.classList.add("modal");
+        }, 1000);
     }
 });
 
