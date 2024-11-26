@@ -106,10 +106,10 @@
 							<p class="head-text congrat">CONGRATULATIONS</p>
 							<p class="head-text first-1">SPIN THE WHEEL &</p>
 							<p class="head-text first-2">GET YOUR BONUS</p>
-							<p class="head-text second-1">YOU WON 5625 AUD</p>
+							<p class="head-text second-1">YOU WON 3750 AUD</p>
 							<p class="head-text second-2">PLEASE SPIN AGAIN</p>
 							<p class="head-text third-1">PICK UP YOUR WELCOME BONUS</p>
-							<p class="head-text third-2">5625 AUD + 200 FREE SPINS</p>
+							<p class="head-text third-2">3750 AUD + 200 FREE SPINS</p>
 						</div>
 						<div class="rocket-launch-first-screen__container rocket-launch-first-screen-container" >
 							<div class="rocket-launch-first-screen-container__center" >
@@ -120,28 +120,28 @@
 											<img alt="wheel" class="rocket-launch-drum__img" src="images/wheel.png">
 										</picture>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--0" >
-											<span class="rocket-launch-drum-prize__text">3200 AUD</span>
+											<span class="rocket-launch-drum-prize__text">2200 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--1" >
-											<span class="rocket-launch-drum-prize__text">5625 AUD</span>
+											<span class="rocket-launch-drum-prize__text">3750 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--2" >
-											<span class="rocket-launch-drum-prize__text">3275 AUD</span>
+											<span class="rocket-launch-drum-prize__text">2275 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--3" >
-											<span class="rocket-launch-drum-prize__text">4000 AUD</span>
+											<span class="rocket-launch-drum-prize__text">3000 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--4" >
 											<span class="rocket-launch-drum-prize__text">1750 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--5" >
-											<span class="rocket-launch-drum-prize__text">4500 AUD</span>
+											<span class="rocket-launch-drum-prize__text">1500 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--6" >
 											<span class="rocket-launch-drum-prize__text">2505 AUD</span>
 										</p>
 										<p class="rocket-launch-drum-prize rocket-launch-drum__prize rocket-launch-drum__prize--7" >
-											<span class="rocket-launch-drum-prize__text">3500 AUD</span>
+											<span class="rocket-launch-drum-prize__text">1000 AUD</span>
 										</p>
 									</div>
 									<div class="rocket-launch-drum__action">
@@ -167,10 +167,10 @@
 		</div>
 	</div>
 	<script>
-		const body = document.body
 		const wheel = document.querySelector('.rocket-launch-drum__wheel')
 		const spinBtn = document.querySelector('.rocket-launch-drum__btn')
 		let count = 2
+		const data = []
 
 		spinBtn.addEventListener('click', () => {
 			count--
@@ -180,15 +180,14 @@
 			if(count === 1) {
 				wheel.classList.add('rocket-launch-drum__wheel--first-prize');
 				setTimeout(() => {
-					showModal();
 					spinBtn.disabled = false;
-					document.querySelector('.rocket-launch-first-screen-container-bonus').classList.add('active')
+					document.querySelector('body').classList.add('first-prize')
 				}, 3500)
 			} else if (count === 0) {
 				wheel.classList.add('rocket-launch-drum__wheel--second-prize')
 				setTimeout(() => {
-					showModal();
 					spinBtn.disabled = false
+					document.querySelector('body').classList.add('second-prize')
 				}, 3500)
 			} else {
 				spinBtn.disabled = true
