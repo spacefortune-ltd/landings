@@ -43,6 +43,7 @@
 
 html {
 	line-height: 1.1;
+	letter-spacing: -0.03em;
 }
 
 *,
@@ -63,6 +64,7 @@ body {
 	font-family: Unbounded, sans-serif;
 	min-height: 100vh;
 	position: relative;
+	color: #FFFFFF;
 }
 
 h1 {
@@ -81,7 +83,7 @@ a {
 }
 
 .container {
-	max-width:1570px;
+	max-width:1580px;
 	padding:0 15px;
 	margin:0 auto;
 }
@@ -125,26 +127,248 @@ video {
 	height: 100%;
 	z-index:-100;
 	object-fit:cover;
+	max-height: 1020px;
 }
 
 .main {
-	display:flex;
-	justify-content:center;
-	align-items:center;
 	height:100%;
+	width: 100%;
 }
 
-.main .container {
+.bonus .container {
+	position:relative;
+}
+
+.bonus {
+	padding-top:340px;
+	max-width: 1160px;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.bonus-info {
+	margin-bottom: 60px;
+	padding: 40px;
+	box-shadow: 0px 0px 50px 0px #00000033;
+	border: 1px solid #FFFFFF26;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+	radial-gradient(46.86% 105.6% at 72.57% 50%, rgba(255, 0, 106, 0.5) 0%, rgba(255, 0, 76, 0) 100%) ,
+	radial-gradient(36.57% 88.09% at 22.57% 73.55%, rgba(0, 255, 251, 0.5) 0%, rgba(0, 255, 225, 0) 100%);
+	border-radius: 50px;
+	position: relative;
+}
+.bonus-info:after {
+	backdrop-filter: blur(50px);
+	-webkit-backdrop-filter: blur(50px);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	border-radius: 50px;
+}
+
+.bonus-welcome {
+	font-size: 40px;
+	font-weight: 800;
+	text-align: center;
+	color: #FFDE10;
+}
+
+.bonus-text {
+	font-size: 70px;
+	font-weight: 900;
+	text-align: center;
+	margin: 12px 0 40px 0;
+}
+
+.bonus a {
+	padding: 15px 30px;
+	border-radius: 14px;
+	background: #FFDE10;
+	font-size: 16px;
+	font-weight: 800;
+	text-align: center;
 	display: flex;
-	align-items:center;
+	justify-content: center;
+	align-items: center;
+	max-width: 220px;
+	margin: 0 auto;
 }
 
-
-
-
-@media(max-width: 1000px) {
-
+.bonus a:hover {
+	background: #DFC000;
 }
 
+.steps {
+	display: flex;
+	align-items: center;
+	counter-reset: step-counter;
+}
 
+.step {
+	padding: 40px 30px;
+	border-radius: 40px;
+	background: #05ABA966;
+	border: 1px solid #FFFFFF26;
+	box-shadow: 0px 0px 50px 0px #00000033;
+	flex:1;
+	position: relative;
+}
 
+.step:before {
+	backdrop-filter: blur(50px);
+	-webkit-backdrop-filter: blur(50px);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	border-radius: 40px;
+}
+
+.step:after {
+	position: absolute;
+	counter-increment: step-counter;
+	content: counter(step-counter);
+	top:-25px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: linear-gradient(180deg, #F100FE 0%, #902600 100%);
+	box-shadow: 0px 8px 4px 0px #FF0550B8 inset;
+	font-size: 16px;
+	font-weight: 800;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.step + .step {
+	margin-left:40px;
+}
+
+.step-title {
+	font-size: 20px;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 12px;
+}
+
+.step-text {
+	font-size: 16px;
+	font-weight: 500;
+	text-align: center;
+	color: #C7C7C7;
+}
+
+.payments {
+	background: linear-gradient(180deg, rgba(26, 2, 94, 0) 20.16%, #19025A 41.01%, #0E0132 100%);
+	width: 100%;
+	margin: -90px 0 0 0;
+}
+
+.payments .container {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 240px 5px 130px 5px;
+	justify-content: center;
+}
+
+.payments img {
+	max-height: 33px;
+}
+
+.payments picture {
+	margin: 15px 10px 0 10px;
+}
+
+@media(max-width: 1585px) {
+	.payments .container {
+		padding: 240px 5px 95px 5px;
+	}
+}
+
+@media(max-width: 1030px) {
+	video {
+		max-height: unset;
+	}
+	.bonus {
+		padding:100px 0 250px 0;
+	}
+	.bonus-info {
+		margin-bottom: 50px;
+	}
+	.steps {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.step {
+		width: 100%;
+	}
+	.step + .step {
+		margin: 35px 0 0 0;
+	}
+	.payments {
+		position: absolute;
+		bottom: 0;
+		z-index: -1;
+	}
+	.payments .container {
+		padding: 250px 5px 70px 5px;
+	}
+}
+
+@media(max-width: 800px) {
+	.header {
+		padding: 10px;
+		min-height: unset;
+	}
+	.bonus {
+		padding: 80px 0 300px 0;
+	}
+	.bonus-info {
+		padding: 30px;
+	}
+	.bonus-welcome {
+		font-size: 20px;
+	}
+
+	.bonus-text {
+		font-size: 24px;
+		margin: 12px 0 20px 0;
+	}
+
+	.bonus a {
+		padding: 15px 60px;
+	}
+
+	.step {
+		padding: 40px 60px;
+	}
+	.step-title {
+		font-size: 16px;
+	}
+
+	.step-text {
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 500px) {
+	.bonus {
+		padding: 80px 0 400px 0;
+	}
+	.payments .container {
+		padding: 250px 5px 30px 5px;
+	}
+}
