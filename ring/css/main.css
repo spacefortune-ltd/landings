@@ -1198,11 +1198,12 @@ body.animate2 .rocket-launch-drum.rocket-launch-first-screen-container__wheel {
 	}
 	header img {
 		max-width:150px;
+		padding: 5px 0;
 	}
 	header a {
 		position: static;
 		right:0;
-		margin: 20px 0;
+		padding: 8px 20px;
 	}
 	.head-text {
 		font-size: 24px;
@@ -1333,13 +1334,13 @@ body.animate2 .rocket-launch-drum.rocket-launch-first-screen-container__wheel {
 		position: absolute;
 		width: 174px;
 		left: calc(50% - 174px);
-		top: 250px;
+		top: 235px;
 	}
 	.frog2 {
 		position: absolute;
 		width: 192px;
 		left: calc(50%);
-		top: 265px;
+		top: 250px;
 	}
 	footer {
 		position:absolute;

@@ -375,22 +375,33 @@ body.modal .popup {
 	.main .container {
 		flex-direction: column;
 	}
+	.header{
+		padding: 5px 10px;
+		min-height: unset;
+	}
+	.header a {
+		padding: 8px 20px;
+	}
 	.bonus-info img {
-		max-width: 175px;
-		margin: 12px 0 20px 0;
+		max-width: 100px;
+		margin: 5px 0;
 	}
 	.bonus-info .type {
 		font-size: 24px;
+		line-height: 1.05;
 	}
 	.bonus-info .aud {
 		font-size: 60px;
+		line-height: 1.05;
 	}
 	.bonus-info .spin {
-		margin-bottom: 12px;
+		margin-bottom: 0;
 		font-size: 30px;
+		line-height: 1.05;
 	}
 	.bonus-info .text {
 		font-size: 14px;
+		line-height: 1.05;
 	}
 	.play-btn {
 		margin:15px auto;
@@ -400,7 +411,7 @@ body.modal .popup {
 	}
 	.canvas-section {
 		width:80%;
-		margin:0;
+		margin:-40px 0 0 0;
 	}
 	.canvas {
 		max-width:unset;
