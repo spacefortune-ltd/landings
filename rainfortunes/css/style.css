@@ -1,0 +1,495 @@
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("../fonts/HelveticaNeueUltraLight.otf") format("opentype");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("../fonts/HelveticaNeueThin.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("../fonts/HelveticaNeueLight.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("../fonts/HelveticaNeueMedium.otf") format("opentype");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("../fonts/HelveticaNeueBold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("../fonts/HelveticaNeueHeavy.otf") format("opentype");
+	font-weight: 900;
+	font-style: normal;
+}
+
+
+html {
+	line-height: 1.1;
+	letter-spacing: 0.03em;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+body {
+	font-family: Helvetica Neue, sans-serif;
+	min-height: 100vh;
+	position: relative;
+	color: #363636;
+	text-transform: uppercase;
+}
+
+button, input, optgroup, select, textarea {
+}
+
+button, input {
+}
+
+
+a {
+	text-decoration:none;
+}
+
+.container {
+	margin:0 auto;
+	border-left: 1px solid #ABABAB;
+	border-right: 1px solid #ABABAB;
+	position: relative;
+}
+
+.header {
+	background: #E4DED9;
+	width: 100%;
+	padding: 0 80px;
+}
+
+.header img {
+	padding: 30px 60px;
+	min-width: 149px;
+}
+
+.main {
+	height:100%;
+	width: 100%;
+	background: #E4DED9;
+	border-top: 1px solid #ABABAB;
+	padding: 0 80px;
+}
+
+main .flex-container {
+	display: flex;
+	padding: 20px 80px 80px 80px;
+}
+
+main h1 {
+	padding: 80px;
+	font-size: 282px;
+	font-weight: 700;
+	line-height: 0.9;
+	letter-spacing: -0.05em;
+	text-align: center;
+}
+
+main .flex-container picture {
+	max-width: 50%;
+}
+
+.main-info svg {
+	position: absolute;
+	right: 80px;
+	bottom: 80px;
+}
+
+.main-info .slogan {
+	padding-left: 70px;
+	max-width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 0.9;
+	letter-spacing: -0.05em;
+	align-self: flex-end;
+}
+
+.main-info .slogan span:nth-child(1) {
+	padding-right: 50px;
+}
+.main-info .slogan span:nth-child(2) {
+	padding-right: 15px;
+}
+
+.main-info .slogan span:nth-child(4) {
+	padding-right: 200px;
+}
+
+.history-info {
+	position: relative;
+}
+
+.history-info:before {
+	position: absolute;
+	content: "";
+	height:1px;
+	width: calc(100% + 160px);
+	background: #ABABAB;
+	left: -80px;
+	top:0;
+}
+
+.history-info .container {
+	display: flex;
+	align-items: center;
+}
+
+.history {
+	width: calc(100% - 815px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.history .title {
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 90px;
+	letter-spacing: -0.03em;
+	text-align: right;
+	width: 800px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.history .text {
+	padding: 100px 0 0 0;
+	width: 800px;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 28px;
+	text-indent: 350px;
+}
+
+.history-info .image-container picture {
+	width: 100%;
+	height: 100%;
+}
+
+.history-info .image-container picture img {
+	width: 100%;
+	height: 100%;
+	padding: 150px;
+	transform: translateX(-60px);
+}
+
+.history-info .image-container {
+	width: 815px;
+	height: 1100px;
+	overflow: hidden;
+	position: relative;
+}
+
+.history-info .image-container:before {
+	position: absolute;
+	content: "";
+	height:100%;
+	width: 1px;
+	background: #ABABAB;
+	left: 150px;
+	top:0;
+}
+
+footer {
+	padding: 120px 140px;
+	background: #363636;
+	color: #E4DED9;
+}
+
+footer .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+}
+
+.footer-title {
+	max-width: 370px;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: -0.03em;
+	text-align: left;
+}
+
+.footer-text {
+	max-width: 645px;
+	text-align: right;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 20px;
+}
+
+@media(max-width: 2400px) {
+	main h1 {
+		font-size: 230px;
+	}
+}
+
+@media(max-width: 2100px) {
+	main h1 {
+		font-size: 180px;
+	}
+	.main-info .slogan {
+		font-size: 70px;
+	}
+}
+
+@media(max-width: 1900px) {
+	.history .title {
+		font-size: 70px;
+		line-height: 0.9;
+		width: 600px;
+	}
+
+	.history .text {
+		padding: 100px 0 0 0;
+		width: 600px;
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 28px;
+		text-indent: 250px;
+	}
+
+	.history-info .image-container {
+		width: 586px;
+		height: 800px;
+	}
+
+	.history {
+		width: calc(100% - 586px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.history-info .image-container picture img {
+		padding: 100px;
+	}
+	.history-info .image-container:before {
+		left: 100px;
+	}
+}
+
+@media(max-width: 1700px) {
+	main h1 {
+		font-size: 130px;
+	}
+	.main-info .slogan {
+		font-size: 50px;
+	}
+	.main-info svg {
+		width: 54px;
+		height: 54px;
+	}
+	.main-info .slogan span:nth-child(1) {
+		padding-right: 25px;
+	}
+	.main-info .slogan span:nth-child(2) {
+		padding-right: 7px;
+	}
+	.main-info .slogan span:nth-child(4) {
+		padding-right: 100px;
+	}
+}
+
+@media(max-width: 1500px) {
+	.history .title {
+		width: 400px;
+		font-size: 40px;
+	}
+
+	.history .text {
+		width: 400px;
+		text-indent: 150px;
+		padding: 40px 0 0 0;
+	}
+
+	.history-info .image-container {
+		width: 378px;
+		height: 520px;
+	}
+
+	.history {
+		width: calc(100% - 378px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.history-info .image-container picture img {
+		padding: 60px;
+		transform: translateX(-40px);
+	}
+	.history-info .image-container:before {
+		left: 80px;
+	}
+	footer {
+		padding: 100px 80px;
+	}
+	.footer-text {
+		max-width: 400px;
+	}
+}
+
+@media(max-width: 1300px) {
+	main h1 {
+		font-size: 80px;
+	}
+	.main-info .slogan {
+		font-size: 40px;
+	}
+	.main-info .slogan span:nth-child(1) {
+		padding-right: 15px;
+	}
+	.main-info .slogan span:nth-child(2) {
+		padding-right: 0;
+	}
+	.main-info .slogan span:nth-child(4) {
+		padding-right: 70px;
+	}
+}
+
+@media(max-width: 1000px) {
+	main h1 {
+		font-size: 52px;
+	}
+	.header {
+		padding: 0;
+	}
+	.header .container {
+		border: 0;
+	}
+	.header img {
+		padding: 30px 20px;
+	}
+	.main {
+		padding: 0 20px;
+	}
+	.main-info .container {
+		border: none;
+	}
+	main h1 {
+		padding: 30px 0 20px 0;
+	}
+	.main-info .flex-container {
+		padding: 0 0 80px 0;
+		flex-direction: column;
+	}
+	main .flex-container picture {
+		max-width: 100%;
+	}
+	.main-info .slogan {
+		padding: 80px 0 0 0;
+		align-self: flex-start;
+		max-width: unset;
+	}
+	.main-info svg {
+		right: 20px;
+	}
+	.history-info:before {
+		display: none;
+	}
+	.history-info .container {
+		flex-direction: column-reverse;
+		border: 0;
+		align-items: flex-end;
+	}
+	.history-info .image-container:before {
+		display: none;
+	}
+	.history-info .image-container {
+		width: 285px;
+		height: 443px;
+	}
+	.history-info .image-container picture img {
+		padding: 0 20px 0 0;
+		transform: translateX(0);
+	}
+	.history {
+		width: 100%;
+		padding: 80px 0 160px 0;
+	}
+	.history .title {
+		width: 100%;
+		align-items: flex-start;
+	}
+	.history .text {
+		width: 100%;
+		padding-top: 40px;
+		text-indent: 40px;
+	}
+	footer {
+		padding: 40px;
+	}
+	footer .container {
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+	}
+	.footer-title {
+		max-width: 100%;
+	}
+	.footer-text {
+		padding-top: 25px;
+		max-width: 100%;
+		text-align: left;
+	}
+}
+
+@media(max-width: 700px) {
+	.history-info .image-container {
+		width: 190px;
+		height: 295px;
+	}
+}
+
+@media(max-width: 429px) {
+	main h1 {
+		font-size: 40px;
+	}
+	.main-info .slogan,.history .title {
+		font-size: 30px;
+	}
+
+}
