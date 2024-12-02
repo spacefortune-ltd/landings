@@ -371,6 +371,54 @@ body.modal .popup {
 	background: #FF8800;
 }
 
+.tabs-container {
+	display: flex;
+	align-items: center;
+}
+
+.tabs.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.tabs-container a {
+	margin-left:10px;
+}
+
+.tabs {
+	height: 40px;
+	background: #FFFFFF1A;
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	width: 92px;
+	padding: 4px;
+}
+
+.tab {
+	width: calc(50%);
+	height: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	color: #FFFFFF4D;
+}
+
+.tab svg {
+	width: 16px;
+	height: 16px;
+}
+
+.tab.active {
+	background: #FBAF15;
+	color: #333333;
+}
+
 @media(max-width: 1000px) {
 	.main .container {
 		flex-direction: column;
@@ -427,7 +475,6 @@ body.modal .popup {
 	}
 
 	.popup .win {
-		margin-top:15px;
 		font-size: 18px;
 	}
 
@@ -440,7 +487,10 @@ body.modal .popup {
 		width:100%;
 		padding:18px;
 	}
-
+	.tabs {
+		height: 32px;
+		width: 72px;
+	}
 }
 
 
@@ -469,5 +519,12 @@ body.modal .popup {
 	.bowl .x.active {
 		font-size: 10px;
 		line-height: 11px;
+	}
+}
+
+
+@media(max-width: 380px) {
+	.header img {
+		max-width: 120px;
 	}
 }

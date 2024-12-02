@@ -1,6 +1,77 @@
 const { Engine, Render, Runner, Bodies, Composite, Events } = Matter;
 
-// Setup constants
+let isSound = false;
+let isPlay = false;
+
+// Web Audio API setup
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const bufferCache = {};
+
+// Preload audio buffers
+const loadAudio = async (url) => {
+    const response = await fetch(url);
+    const arrayBuffer = await response.arrayBuffer();
+    return audioContext.decodeAudioData(arrayBuffer);
+};
+
+// Load all audio files
+const preloadSounds = async () => {
+    bufferCache.music = await loadAudio('./sounds/music.wav');
+    bufferCache.touch = await loadAudio('./sounds/touch.wav');
+    bufferCache.popup = await loadAudio('./sounds/popup.wav');
+    bufferCache.clickS = await loadAudio('./sounds/click.mp3');
+    bufferCache.out = await loadAudio('./sounds/out.wav');
+};
+
+// Play a sound
+const playSound = (buffer, volume = 1, loop = false) => {
+    const source = audioContext.createBufferSource();
+    const gainNode = audioContext.createGain();
+
+    source.buffer = buffer;
+    source.loop = loop;
+    source.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    gainNode.gain.value = volume;
+    source.start(0);
+    return source; // Return the source if you want to stop looping later
+};
+
+let musicSource;
+
+// Preload all sounds
+preloadSounds();
+
+// UI sound toggling
+document.querySelectorAll(".tabs .tab").forEach(tab => {
+    tab.addEventListener("click", function clickHandler() {
+        const tabs = document.querySelectorAll('.tabs .tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        this.classList.add('active');
+        isSound = this.classList.contains('sound');
+
+        if (isSound) {
+            if (!musicSource) {
+                musicSource = playSound(bufferCache.music, 0.2, true);
+            }
+        } else if (musicSource) {
+            musicSource.stop();
+            musicSource = null;
+        }
+    });
+});
+
+document.querySelectorAll("button, a").forEach(b => {
+    b.addEventListener("click", function clickHandler() {
+        if (isSound) {
+            playSound(bufferCache.clickS, 0.4);
+        }
+    });
+});
+
+// Physics engine setup
 const worldWidth = 650;
 const startPins = 2;
 const pinLines = 8;
@@ -8,10 +79,8 @@ const pinSize = 7;
 const pinGap = 63;
 const ballSize = 17;
 
-// Create the physics engine
 var engine = Engine.create();
 
-// Setup rendering
 var render = Render.create({
     element: document.querySelector('.canvas'),
     engine: engine,
@@ -20,10 +89,10 @@ var render = Render.create({
         height: 630,
         wireframes: false,
         background: null,
+        pixelRatio: 1,
     },
 });
 
-// Create pins
 const pins = [];
 for (let l = 0; l < pinLines; l++) {
     const linePins = startPins + l;
@@ -36,9 +105,7 @@ for (let l = 0; l < pinLines; l++) {
             pinSize,
             {
                 isStatic: true,
-                render: {
-                    fillStyle: "white", // Initial pin color is white
-                },
+                render: { fillStyle: "white" },
             }
         );
         pins.push(pin);
@@ -46,109 +113,83 @@ for (let l = 0; l < pinLines; l++) {
 }
 Composite.add(engine.world, pins);
 
-// Add a visual hole at the top
-const holeX = 294; // Center of the hole
-const holeY = 100; // Vertical position of the hole
+const holeX = 294;
+const holeY = 100;
 const holeRadius = 20;
 
-// Static body for the hole (purely decorative)
 const hole = Bodies.circle(holeX, holeY, holeRadius, {
     isStatic: true,
     render: {
-        sprite: {
-            texture: "content-img/hall.png",
-            xScale: 1,
-            yScale: 1,
-        },
+        sprite: { texture: "content-img/hall.png", xScale: 1, yScale: 1 },
     },
 });
-
-hole.collisionFilter = {
-    'group': -1,
-    'category': 2,
-    'mask': 0,
-};
-
+hole.collisionFilter = { 'group': -1, 'category': 2, 'mask': 0 };
 Composite.add(engine.world, hole);
 
-// Track balls
 const balls = [];
+document.querySelector(".play-btn").addEventListener("click", function clickHandler() {
+    document.querySelector(".play-btn").disabled = true;
+    document.querySelectorAll('.tabs .tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelector('.tabs .tab.sound')?.classList.add('active');
+    isPlay = true;
+    isSound = true;
 
-// Drop balls from the center of the hole
-document.querySelector("button").addEventListener("click", function clickHandler() {
-    document.querySelector("button").disabled = true;
+    if (!musicSource) {
+        musicSource = playSound(bufferCache.music, 0.2, true);
+    }
+
 
     for (let t = 0; t < 5; t++) {
         setTimeout(() => {
-            const delta = [0.4, -0.4, 0.8, -0.8 , 1.1];
-            // Position ball at the exact center of the hole (start straight down)
+            const delta = [0.4, -0.4, 0.8, -0.8, 1.1];
             const ball = Bodies.circle(holeX + delta[t], holeY, ballSize, {
-                restitution: 0.53, // Slight bounce
-                render: {
-                    sprite: {
-                        texture: "content-img/ball.png",
-                        xScale: 0.07,
-                        yScale: 0.07,
-                    },
-                },
+                restitution: 0.53,
+                render: { sprite: { texture: "content-img/ball.png", xScale: 0.07, yScale: 0.07 } },
             });
 
             Matter.Body.setVelocity(ball, { x: 0, y: 0.1 });
-
-            // Add ball to the world
             balls.push(ball);
             Composite.add(engine.world, ball);
-
-        }, t * 1800); // Delay each ball drop
+        }, t * 1800);
     }
 });
 
-// Add collision event to change pin color when hit by a ball, but exclude the hole
 Events.on(engine, "collisionStart", (event) => {
     const pairs = event.pairs;
 
-    pairs.forEach((pair) => {
-        const { bodyA, bodyB } = pair;
-
+    pairs.forEach(({ bodyA, bodyB }) => {
         const ball = balls.find((b) => b === bodyA || b === bodyB);
         if (ball) {
             const pin = bodyA === ball ? bodyB : bodyA;
 
-            // Ensure that the pin is not the hole (hole is static but does not change color)
             if (pin.isStatic && pin !== hole) {
-                // Temporarily change the pin color to pink
-                pin.render.fillStyle = "#E0319C"; // Pink color
+                pin.render.fillStyle = "#E0319C";
 
-                // Reset the pin color back to white after 300ms
+                if (isSound) {
+                    playSound(bufferCache.touch, 0.16);
+                }
+
                 setTimeout(() => {
-                    pin.render.fillStyle = "white"; // Change back to white after collision
+                    pin.render.fillStyle = "white";
                 }, 300);
             }
         }
     });
 });
-Events.on(engine, "afterUpdate", () => {
-    const ballsInField = balls.filter(
-        (ball) => ball.position.y < render.options.height + ballSize
-    );
 
-    // If all balls have left the field
+Events.on(engine, "afterUpdate", () => {
+    const ballsInField = balls.filter((ball) => ball.position.y < render.options.height + ballSize);
     if (ballsInField.length === 0 && balls.length > 0) {
         setTimeout(() => {
-            // Smooth scroll to the top
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-            // Add 'modal' class to body
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (isSound) playSound(bufferCache.popup, 0.4);
             document.body.classList.add("modal");
         }, 1000);
     }
 });
 
+// Activate spans logic
 const index = [6, 7, 5, 3, 8];
-
-// Function to activate the corresponding span based on the current index
 let currentIndex = 0;
 
 function activateNext() {
@@ -158,33 +199,23 @@ function activateNext() {
             Matter.Body.setPosition(pins[25], { x: 419, y: pins[25].position.y });
         }
         const targetSpan = document.querySelector(`.bowls .bowl:nth-child(${targetIndex}) span.x`);
-        if (targetSpan) {
-            targetSpan.classList.add("active");
-        }
+        if (targetSpan) targetSpan.classList.add("active");
         currentIndex++;
     }
 }
 
-// Listener to check when a ball leaves the field
 Events.on(engine, "afterUpdate", () => {
-    // Filter out balls still in the field
-    const ballsInField = balls.filter((ball) => ball.position.y < render.options.height + 2*ballSize);
-
-    // If a ball has left the field
+    const ballsInField = balls.filter((ball) => ball.position.y < render.options.height + 2 * ballSize);
     if (balls.length > ballsInField.length) {
-        balls.splice(0, balls.length - ballsInField.length); // Remove the exited balls from tracking
-
-        setTimeout(() => {
-            activateNext(); // Activate the next span
-        }, 100); // 1-second delay
+        balls.splice(0, balls.length - ballsInField.length);
+        if (isSound) playSound(bufferCache.out, 0.4);
+        setTimeout(() => activateNext(), 100);
     }
 });
 
-// Run rendering
 Render.run(render);
 
-// Use a fixed interval for updates
-const fixedDeltaTime = 1000 / 60; // 60 FPS
+const fixedDeltaTime = 1000 / 60;
 setInterval(() => {
     Engine.update(engine, fixedDeltaTime);
 }, fixedDeltaTime);
