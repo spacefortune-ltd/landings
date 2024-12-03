@@ -25,4 +25,45 @@ jQuery(function() {
         }
     });
 
+    // Detect the device type
+    function isIOS() {
+        return /iPhone|iPad|iPod/.test(navigator.userAgent);
+    }
+
+    function isWebMSupported() {
+        var video = document.createElement('video');
+        return video.canPlayType('video/webm').replace(/^no$/, '') !== '';
+    }
+
+    function setupVideo() {
+        const videoElements = document.querySelectorAll('.video');
+        const webmSources = document.querySelectorAll('.webmSource');
+        const hevcSources = document.querySelectorAll('.hevcSource');
+        const movSources = document.querySelectorAll('.movSource');
+
+        videoElements.forEach((videoElement, index) => {
+            const webmSource = webmSources[index];
+            const hevcSource = hevcSources[index];
+            const movSource = movSources[index];
+
+            if (isIOS()) {
+                hevcSource.style.display = 'block';
+                webmSource.style.display = 'none';
+                movSource.style.display = 'none';
+            } else if (isWebMSupported()) {
+                webmSource.style.display = 'block';
+                hevcSource.style.display = 'none';
+                movSource.style.display = 'none';
+            } else {
+                webmSource.style.display = 'none';
+                hevcSource.style.display = 'none';
+                movSource.style.display = 'block';
+            }
+
+            videoElement.load();
+        });
+    }
+
+    setupVideo();
+
 });
