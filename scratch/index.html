@@ -50,12 +50,48 @@
 
 	<section class="scratch-section">
 		<div class="container">
-
+			<div class="cards">
+				<div class="card">
+					<img src="content-img/frame.png" alt="Frame" class="frame">
+					<video class="video" muted>
+						<source src="content-img/scratch.webm" type="video/webm">
+					</video>
+					<picture class="win aud hidden">
+						<source type="image/webp" srcSet="content-img/aud.webp"/>
+						<img src="content-img/aud.png" alt="Apache King">
+					</picture>
+					<span class="win-container"><span class="win-info">3750 AUD</span></span>
+				</div>
+				<div class="card">
+					<img src="content-img/frame.png" alt="Frame" class="frame">
+					<video class="video" muted>
+						<source src="content-img/scratch.webm" type="video/webm">
+					</video>
+					<picture class="win miss hidden">
+						<source type="image/webp" srcSet="content-img/queen.webp"/>
+						<img src="content-img/queen.png" alt="Apache Queen">
+					</picture>
+					<span class="win-container"><span class="win-info">MISS</span></span>
+				</div>
+				<div class="card">
+					<img src="content-img/frame.png" alt="Frame" class="frame">
+					<video class="video" muted>
+						<source src="content-img/scratch.webm" type="video/webm">
+					</video>
+					<picture class="win fs hidden">
+						<source type="image/webp" srcSet="content-img/free-spin.webp"/>
+						<img src="content-img/free-spin.png" alt="Medal">
+					</picture>
+					<span class="win-container"><span class="win-info">200 FP</span></span>
+				</div>
+			</div>
 		</div>
 	</section>
-
-
-
 </main>
+
+<footer>© <span id="currentYear"></span> AXE CASINO. All rights reserved</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>
