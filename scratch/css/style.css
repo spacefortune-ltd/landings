@@ -107,6 +107,7 @@ a {
 	max-width:1000px;
 	padding:0 15px;
 	margin:0 auto;
+	position:relative;
 }
 
 .header {
@@ -289,20 +290,10 @@ body.show .overlay {
 	position:relative;
 	z-index:-1;
 }
-
-.win img {
-	width:260px;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
-	position:absolute;
-	z-index:-3;
-}
-
 .video {
 	width:260px;
 	position:absolute;
-	top:calc(50% - 6px);
+	top:calc(50% - 4px);
 	left:50%;
 	transform:translate(-50%,-50%);
 	z-index:-2;
@@ -312,10 +303,6 @@ body.show .overlay {
     border: none;
     outline: none;
     box-shadow: none;
-}
-
-.win.hidden {
-	display:none;
 }
 
 .win-container {
@@ -375,6 +362,66 @@ footer {
 	width:100%;
 }
 
+
+.tabs-container {
+	display: flex;
+	align-items: center;
+	position:absolute;
+	right:15px;
+}
+
+.tabs.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.tabs {
+	height: 40px;
+	background: linear-gradient(136.17deg, #385200 -1.28%, #23390B 45.79%, #95AA18 103.32%);
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	width: 92px;
+	padding: 4px;
+}
+
+.tabs:after {
+	content: "";
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	border-radius: 100px;
+	background: linear-gradient(180deg, #375B10 0%, #669303 100%);
+	position: absolute;
+	z-index: -1;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+
+.tab {
+	width: calc(50%);
+	height: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	color: #FFFFFF4D;
+}
+
+.tab svg {
+	width: 16px;
+	height: 16px;
+}
+
+.tab.active {
+	background: #FBAF15;
+	color: #333333;
+}
+
 @media(max-width: 1000px) {
 	.header {
 		padding: 30px 0;
@@ -390,7 +437,7 @@ footer {
 	.cards {
 		width: 240px;
 	}
-	.win img, .video {
+	.video {
 		width:190px;
 	}
 	.win-container {
@@ -417,6 +464,22 @@ footer {
 	footer {
 		font-size: 14px;
 	}
+	.tabs {
+		height: 32px;
+		width: 72px;
+	}
+	.tabs {
+		height: 28px;
+		width: 65px;
+	}
+	.tabs-container {
+
+	}
+
 }
 
-
+@media(max-width: 600px) {
+	.header > .container {
+		justify-content: flex-start;
+	}
+}

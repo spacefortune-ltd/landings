@@ -83,7 +83,9 @@ jQuery(function() {
     });
 
     jQuery('a').on('click', function() {
-        playSound(bufferCache.clickS3, 0.4);
+        if (jQuery('.tab.sound').hasClass('active')) {
+            playSound(bufferCache.clickS3, 0.4);
+        }
     });
 
 });

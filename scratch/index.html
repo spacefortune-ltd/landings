@@ -36,6 +36,28 @@
 			<source type="image/webp" srcSet="content-img/logo.webp"/>
 			<img src="content-img/logo.png" alt="Axe Casino">
 		</picture>
+		<div class="tabs-container">
+			<div class="tabs hidden">
+				<span class="sound tab">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M7.51307 2.05603C6.4048 2.05603 6.73991 3.93123 3 4.98314C1.96604 5.27327 1.44444 5.49212 1.44444 6.56821V9.43808C1.44444 10.5142 1.96604 10.733 3 11.0228C6.73991 12.0749 6.40462 13.949 7.51307 13.949H7.99449C8.50098 13.949 8.91218 13.5385 8.91218 13.0315V2.97443C8.91218 2.46759 8.50098 2.05603 7.99449 2.05603H7.51307Z"
+							  fill="currentColor"/>
+						<path d="M10.8327 4.98988C10.2827 4.99628 9.94097 5.58953 10.2105 6.06953C10.8556 7.25975 10.8556 8.74473 10.2105 9.93584C10.0076 10.2891 10.1355 10.7396 10.4928 10.9341C10.8501 11.128 11.2972 10.989 11.4827 10.6263C12.366 8.99699 12.366 7.00695 11.4827 5.37726C11.3556 5.13637 11.1049 4.98597 10.8327 4.98988Z"
+							  fill="currentColor"/>
+						<path d="M12.8055 3.14986C12.2233 3.17653 11.9104 3.84675 12.2631 4.31111C12.9575 5.25671 13.3771 6.59786 13.3771 8.00213C13.3771 9.40639 12.9577 10.7484 12.2631 11.6931C12.0249 12.0156 12.0937 12.4707 12.4158 12.7079C12.7387 12.9452 13.1925 12.8757 13.4297 12.5524C14.3397 11.312 14.8249 9.68906 14.8249 8.00213C14.8249 6.31591 14.3397 4.69315 13.4297 3.45279C13.286 3.25173 13.0521 3.13777 12.8055 3.14986Z"
+							  fill="currentColor"/>
+					</svg>
+				</span>
+				<span class="no-sound tab active">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.33375 10.1077C1.33375 10.8716 1.99888 11.4368 2.7283 11.4462L3.99913 11.4632C5.19001 12.3433 6.38165 13.2287 7.57205 14.1064C8.27321 14.5839 9.33246 14.1315 9.33246 13.234V2.8551C9.33246 1.75941 8.30086 1.38701 7.57204 1.98401C6.38467 2.88953 5.18595 3.80379 3.99522 4.71187L2.7322 4.71966C2.00231 4.72433 1.33375 5.28923 1.33374 6.0543L1.33375 10.1077Z"
+							  fill="currentColor"/>
+						<path d="M10.8619 6.24064C10.6016 6.50098 10.6016 6.92301 10.8619 7.18335L11.7239 8.04532L10.8619 8.906C10.6016 9.16634 10.6016 9.58837 10.8619 9.84871C11.1223 10.109 11.5443 10.109 11.8046 9.84871L12.6666 8.98673L13.5286 9.84871C13.7889 10.109 14.211 10.109 14.4713 9.84871C14.7316 9.58837 14.7316 9.16634 14.4713 8.906L13.6093 8.04532L14.4713 7.18335C14.7316 6.92301 14.7316 6.50098 14.4713 6.24064C14.1677 5.93704 13.7693 5.99992 13.5286 6.24064L12.6666 7.10262L11.8046 6.24064C11.5112 5.94725 11.1207 5.9819 10.8619 6.24064Z"
+							  fill="currentColor"/>
+					</svg>
+				</span>
+			</div>
+		</div>
 	</div>
 </header>
 
@@ -47,41 +69,20 @@
 			<div class="cards">
 				<div class="card">
 					<img src="content-img/frame.png" alt="Frame" class="frame">
-					<video class="video" muted playsinline webkit-playsinline>
-						<source class="webmSource" src="content-img/scratch.webm" type="video/webm">
-						<source class="hevcSource" src="content-img/scratch.mp4" type="video/mp4; codecs=hevc">
-						<source class="movSource" src="content-img/scratch.mov" type="video/quicktime">
+					<video class="video" poster="content-img/video-preview.png" muted playsinline webkit-playsinline src="content-img/scratch1.mp4">
 					</video>
-					<picture class="win aud hidden">
-						<source type="image/webp" srcSet="content-img/aud.webp"/>
-						<img src="content-img/aud.png" alt="Apache King">
-					</picture>
 					<span class="win-container"><span class="win-info">3750 AUD</span></span>
 				</div>
 				<div class="card">
 					<img src="content-img/frame.png" alt="Frame" class="frame">
-					<video class="video" muted playsinline webkit-playsinline>
-						<source class="webmSource" src="content-img/scratch.webm" type="video/webm">
-						<source class="hevcSource" src="content-img/scratch.mp4" type="video/mp4; codecs=hevc">
-						<source class="movSource" src="content-img/scratch.mov" type="video/quicktime">
+					<video class="video" poster="content-img/video-preview.png" muted playsinline webkit-playsinline src="content-img/scratch2.mp4">
 					</video>
-					<picture class="win miss hidden">
-						<source type="image/webp" srcSet="content-img/queen.webp"/>
-						<img src="content-img/queen.png" alt="Apache Queen">
-					</picture>
 					<span class="win-container"><span class="win-info">MISS</span></span>
 				</div>
 				<div class="card">
 					<img src="content-img/frame.png" alt="Frame" class="frame">
-					<video class="video" muted playsinline webkit-playsinline>
-						<source class="webmSource" src="content-img/scratch.webm" type="video/webm">
-						<source class="hevcSource" src="content-img/scratch.mp4" type="video/mp4; codecs=hevc">
-						<source class="movSource" src="content-img/scratch.mov" type="video/quicktime">
+					<video class="video" poster="content-img/video-preview.png" muted playsinline webkit-playsinline src="content-img/scratch3.mp4">
 					</video>
-					<picture class="win fs hidden">
-						<source type="image/webp" srcSet="content-img/free-spin.webp"/>
-						<img src="content-img/free-spin.png" alt="Medal">
-					</picture>
 					<span class="win-container"><span class="win-info">200 FP</span></span>
 				</div>
 			</div>
@@ -91,7 +92,7 @@
 
 <footer>© <span id="currentYear"></span> AXE CASINO. All rights reserved</footer>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./js/main.js"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
