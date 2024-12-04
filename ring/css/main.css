@@ -17,9 +17,14 @@ header {
 header img {
 	padding:15px 0;
 }
-header a {
+header .buttons {
 	position: absolute;
 	right:15px;
+	display:flex;
+	align-items:center;
+}
+
+header a {
 	display:inline-flex;
 	justify-content:center;
 	align-items:center;
@@ -33,6 +38,7 @@ header a {
 	color:#FA5E1B;
 	border-radius:12px;
 	vertical-align:top;
+	margin-left:10px;
 }
 a:hover {
 	opacity:0.9;
@@ -52,6 +58,51 @@ footer {
 .hide {
 	display: none !important;
 }
+
+.tabs-container {
+	display: flex;
+	align-items: center;
+}
+
+.tabs.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.tabs {
+	height: 40px;
+	background: #FFFFFF1A;
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	width: 92px;
+	padding: 4px;
+}
+
+.tab {
+	width: calc(50%);
+	height: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	color: #FFFFFF4D;
+}
+
+.tab svg {
+	width: 16px;
+	height: 16px;
+}
+
+.tab.active {
+	background: #FBAF15;
+	color: #333333;
+}
+
 body.body--blurred .promotion-container {
 	-webkit-filter: blur(2px);
 	filter: blur(2px)
@@ -1202,9 +1253,15 @@ body.animate2 .rocket-launch-drum.rocket-launch-first-screen-container__wheel {
 		padding: 5px 0;
 	}
 	header a {
+		padding: 8px 20px;
+	}
+	.tabs {
+		height: 32px;
+		width: 72px;
+	}
+	header .buttons {
 		position: static;
 		right:0;
-		padding: 8px 20px;
 	}
 	.head-text {
 		font-size: 24px;
@@ -1394,3 +1451,9 @@ body.animate2 .rocket-launch-drum.rocket-launch-first-screen-container__wheel {
 	}
 }
 
+@media (max-width:380px) {
+	header img {
+		max-width:130px;
+		padding: 8px 0;
+	}
+}
