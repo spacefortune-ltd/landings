@@ -36,10 +36,20 @@ const playSound = (buffer, volume = 1, loop = false) => {
     return source;
 };
 
+// Preload sounds and update the UI
+const initApp = async () => {
+    try {
+        await preloadSounds();
+        document.querySelectorAll(".card").forEach((w) => w.classList.remove('disable'));
+    } catch (error) {
+        console.error("Error preloading sounds:", error);
+    }
+};
+
 let musicSource;
 
-// Preload all sounds
-preloadSounds();
+// Start the initialization process
+initApp();
 
 jQuery(function() {
 
@@ -52,6 +62,11 @@ jQuery(function() {
 
     jQuery('.cards').on('click', '.card', function() {
         var card = jQuery(this);
+
+        if(card.hasClass('scratched') || card.hasClass('scratching') || card.hasClass('disable')) {
+            return
+        }
+        card.addClass('scratching');
         var video = card.find('.video').get(0);
 
         if (jQuery('.tab.sound').hasClass('active')) {
@@ -75,7 +90,7 @@ jQuery(function() {
                 if (jQuery('.tab.sound').hasClass('active')) {
                     playSound(bufferCache[`scratch${click}`], 0.4);
                 }
-
+                card.removeClass('scratching');
                 card.addClass("scratched");
                 const cards = [...document.querySelectorAll(".card")];
                 if (cards.length > 0 && cards.every((w) => w.classList.contains('scratched'))) {
@@ -113,5 +128,6 @@ jQuery(function() {
             playSound(bufferCache.click, 0.4);
         }
     });
+    
 
 });

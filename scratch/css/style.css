@@ -290,6 +290,7 @@ body.show .overlay {
 	position:relative;
 	z-index:-1;
 }
+
 .video {
 	width:260px;
 	position:absolute;
@@ -303,6 +304,8 @@ body.show .overlay {
     border: none;
     outline: none;
     box-shadow: none;
+    background: url('../content-img/video-preview.png') center no-repeat;
+    background-size: cover;
 }
 
 .win-container {
