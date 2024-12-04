@@ -89,7 +89,7 @@ a {
 }
 
 .header {
-	padding: 20px;
+	padding: 20px 0;
 	background: #11023ACC;
 	min-height: 70px;
 	position: fixed;
@@ -112,7 +112,8 @@ a {
 .header > .container {
 	display:flex;
 	align-items:center;
-	justify-content:center;
+	justify-content:space-between;
+	max-width: 1160px
 }
 
 .header img {
@@ -292,6 +293,54 @@ video {
 	margin: 15px 10px 0 10px;
 }
 
+.music, .click {
+	display:none;
+}
+
+.tabs-container {
+	display: flex;
+	align-items: center;
+}
+
+.tabs.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.tabs {
+	height: 40px;
+	background: #FFFFFF1A;
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	width: 92px;
+	padding: 4px;
+}
+
+.tab {
+	width: calc(50%);
+	height: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	color: #FFFFFF4D;
+}
+
+.tab svg {
+	width: 16px;
+	height: 16px;
+}
+
+.tab.active {
+	background: #FBAF15;
+	color: #333333;
+}
+
 @media(max-width: 1585px) {
 	.payments .container {
 		padding: 240px 5px 95px 5px;
@@ -330,7 +379,7 @@ video {
 
 @media(max-width: 800px) {
 	.header {
-		padding: 10px;
+		padding: 10px 0;
 		min-height: unset;
 	}
 	.bonus {
