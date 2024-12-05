@@ -30,7 +30,7 @@
 
 <main class="main">
 
-	<section class="main-info">
+	<section class="main-info" id="main">
 		<div class="container">
 			<h1>Rainfortunes</h1>
 			<div class="flex-container">
@@ -45,28 +45,30 @@
 					<span>Success</span>
 				</div>
 			</div>
-			<svg width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<g clip-path="url(#clip0_17_155)">
-					<mask id="mask0_17_155" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
-						  width="104" height="104">
-						<path d="M104 0H0V104H104V0Z" fill="white"/>
-					</mask>
-					<g mask="url(#mask0_17_155)">
-						<path d="M48 0H57V100H48V0Z" fill="#363636"/>
-						<path d="M10 62.364L16.364 56L58.7904 98.4264L52.4264 104.79L10 62.364Z" fill="#363636"/>
-						<path d="M88.4264 56L94.7903 62.364L52.3639 104.79L46 98.4264L88.4264 56Z" fill="#363636"/>
+			<a class="arrow-link" href="#history">
+				<svg width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_17_155)">
+						<mask id="mask0_17_155" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
+							  width="104" height="104">
+							<path d="M104 0H0V104H104V0Z" fill="white"/>
+						</mask>
+						<g mask="url(#mask0_17_155)">
+							<path d="M48 0H57V100H48V0Z" fill="#363636"/>
+							<path d="M10 62.364L16.364 56L58.7904 98.4264L52.4264 104.79L10 62.364Z" fill="#363636"/>
+							<path d="M88.4264 56L94.7903 62.364L52.3639 104.79L46 98.4264L88.4264 56Z" fill="#363636"/>
+						</g>
 					</g>
-				</g>
-				<defs>
-					<clipPath id="clip0_17_155">
-						<rect width="104" height="104" fill="white"/>
-					</clipPath>
-				</defs>
-			</svg>
+					<defs>
+						<clipPath id="clip0_17_155">
+							<rect width="104" height="104" fill="white"/>
+						</clipPath>
+					</defs>
+				</svg>
+			</a>
 		</div>
 	</section>
 
-	<section class="history-info">
+	<section class="history-info" id="history">
 		<div class="container">
 			<div class="history">
 				<div class="title"><p>OUR</p> <p>HISTORY</p></div>
@@ -96,6 +98,7 @@
 		</p>
 	</div>
 </footer>
-
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
