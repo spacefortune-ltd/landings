@@ -104,6 +104,7 @@ a {
 	background: #E4DED9;
 	border-top: 1px solid #ABABAB;
 	padding: 0 80px;
+	overflow: hidden;
 }
 
 main .flex-container {
