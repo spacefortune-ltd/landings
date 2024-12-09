@@ -17,6 +17,13 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "p53upgdgo4");
 	</script>
+	<script type="text/javascript">
+        const isPlay = localStorage.getItem("play");
+
+        if (isPlay === "true") {
+            window.location.href = '/login';
+        }
+	</script>
 </head>
 <body>
 
@@ -49,17 +56,17 @@
 <main class="main">
 	<h1>Play Plinko Online Game Free and Win Big Bonus</h1>
 
-	<video autoplay muted loop playsinline>
-		<source src="content-img/bg.webm" type="video/webm">
-		<source src="content-img/bg.mp4" type="video/mp4">
-	</video>
+	<picture>
+		<source type="image/webp" srcSet="content-img/bg.webp"/>
+		<img src="content-img/bg.png" alt="Background" class="video"/>
+	</picture>
 
 	<section class="bonus">
 		<div class="container">
 			<div class="bonus-info">
 				<p class="bonus-welcome">WELCOME PACKAGE</p>
 				<p class="bonus-text">3,750 AUD + 200 FREE SPINS</p>
-				<a href="/go" target="_blank">GET NOW</a>
+				<a href="/go">GET NOW</a>
 			</div>
 			<div class="steps">
 				<div class="step">

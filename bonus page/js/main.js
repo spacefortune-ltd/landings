@@ -55,10 +55,24 @@ jQuery(function() {
 
     });
 
-    jQuery('a').on('click', function() {
+    jQuery('a').on('click', function(e) {
+
+        localStorage.setItem("play", "true");
+
+        const checkInterval = setInterval(() => {
+            if (localStorage.getItem("play") === "true") {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+
         if (jQuery('.tab.active').hasClass('sound')) {
                 playSound(bufferCache.clickS, 0.5);
+                musicSource.stop();
+                musicSource = null;
         }
+
+        window.location.href = '/go';
     });
 
 });
+
