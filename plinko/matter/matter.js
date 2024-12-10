@@ -87,7 +87,7 @@ document.querySelectorAll("a").forEach(a => {
             musicSource = null;
         }
 
-        window.location.href = '/go';
+        window.location.href = 'https://trck.bestonlinecasino.club/click';
     });
 });
 

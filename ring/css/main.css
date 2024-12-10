@@ -1250,7 +1250,7 @@ body.animate2 .rocket-launch-drum.rocket-launch-first-screen-container__wheel {
 	}
 	header img {
 		max-width:150px;
-		padding: 5px 0;
+		padding: 15px 0;
 	}
 	header a {
 		padding: 8px 20px;
@@ -1431,6 +1431,7 @@ body.animate2 .rocket-launch-drum.rocket-launch-first-screen-container__wheel {
 
 	.rocket-launch-first-screen__container.rocket-launch-first-screen-container .rocket-launch-first-screen-container__center {
 		position:absolute;
+		top:-20px;
 	}
 	.bg-circle {
 		width:380px;
