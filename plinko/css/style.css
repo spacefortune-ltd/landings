@@ -424,22 +424,22 @@ body.modal .popup {
 		flex-direction: column;
 	}
 	.header{
-		padding: 5px 10px;
+		padding: 15px 10px;
 		min-height: unset;
 	}
 	.header a {
 		padding: 8px 20px;
 	}
 	.bonus-info img {
-		max-width: 100px;
+		max-width: 75px;
 		margin: 5px 0;
 	}
 	.bonus-info .type {
-		font-size: 24px;
+		font-size: 20px;
 		line-height: 1.05;
 	}
 	.bonus-info .aud {
-		font-size: 48px;
+		font-size: 40px;
 		line-height: 1.05;
 	}
 	.bonus-info .spin {

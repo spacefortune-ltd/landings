@@ -63,11 +63,31 @@ document.querySelectorAll(".tabs .tab").forEach(tab => {
     });
 });
 
-document.querySelectorAll("button, a").forEach(b => {
+document.querySelectorAll("button").forEach(b => {
     b.addEventListener("click", function clickHandler() {
         if (isSound) {
             playSound(bufferCache.clickS, 0.4);
         }
+    });
+});
+
+document.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", function clickHandler(e) {
+        e.preventDefault();
+        localStorage.setItem("play", "true");
+        const checkInterval = setInterval(() => {
+            if (localStorage.getItem("play") === "true") {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+
+        if (isSound) {
+            playSound(bufferCache.clickS, 0.4);
+            musicSource.stop();
+            musicSource = null;
+        }
+
+        window.location.href = '/go';
     });
 });
 

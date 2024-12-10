@@ -57,6 +57,8 @@ jQuery(function() {
 
     jQuery('a').on('click', function(e) {
 
+        e.preventDefault();
+
         localStorage.setItem("play", "true");
 
         const checkInterval = setInterval(() => {
