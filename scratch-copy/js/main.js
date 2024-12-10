@@ -56,24 +56,24 @@ jQuery(function() {
     document.getElementById('currentYear').textContent = "\u00A0" + new Date().getFullYear().toString() + "\u00A0";
 
     window.addEventListener("load", () => {
-        document.querySelectorAll(".win").forEach((w) => w.classList.remove('hidden'));
         document.querySelector(".tabs").classList.remove('hidden');
     });
 
-    jQuery('.cards').on('click', '.card', function() {
+    jQuery('.cards').on('click', '.card', function () {
         var card = jQuery(this);
 
-        if(card.hasClass('scratched') || card.hasClass('scratching') || card.hasClass('disable')) {
+        if (card.hasClass('scratched') || card.hasClass('scratching') || card.hasClass('disable')) {
             return
         }
         card.addClass('scratching');
-        var video = card.find('.video').get(0);
+        card.find('.start-img').addClass('img-hidden');
+        card.find('.play-img').removeClass('img-hidden');
 
         if (jQuery('.tab.sound').hasClass('active')) {
             playSound(bufferCache.scratch, 0.4);
         }
 
-        if(click === 0) {
+        if (click === 0) {
             playSound(bufferCache.scratch, 0.4);
             if (!musicSource) {
                 musicSource = playSound(bufferCache.music, 0.2, true);
@@ -84,27 +84,30 @@ jQuery(function() {
 
         ++click;
 
-        if (video) {
-            video.play();
-            setTimeout(function() {
-                if (jQuery('.tab.sound').hasClass('active')) {
-                    playSound(bufferCache[`scratch${click}`], 0.4);
-                }
-                card.removeClass('scratching');
-                card.addClass("scratched");
-                const cards = [...document.querySelectorAll(".card")];
-                if (cards.length > 0 && cards.every((w) => w.classList.contains('scratched'))) {
-                    setTimeout(function() {
 
-                        if (jQuery('.tab.sound').hasClass('active')) {
-                            playSound(bufferCache.cong, 0.4);
-                        }
+        setTimeout(function () {
+            if (jQuery('.tab.sound').hasClass('active')) {
+                playSound(bufferCache[`scratch${click}`], 0.4);
+            }
+            card.removeClass('scratching');
+            card.addClass("scratched");
 
-                        document.querySelector('body').classList.add('show');
-                    }, 1000);
-                }
-            }, 1500);
-        }
+            card.find('.play-img').addClass('img-hidden');
+            card.find('.last-img').removeClass('img-hidden');
+
+            const cards = [...document.querySelectorAll(".card")];
+            if (cards.length > 0 && cards.every((w) => w.classList.contains('scratched'))) {
+                setTimeout(function () {
+
+                    if (jQuery('.tab.sound').hasClass('active')) {
+                        playSound(bufferCache.cong, 0.4);
+                    }
+
+                    document.querySelector('body').classList.add('show');
+                }, 1000);
+            }
+        }, 1500);
+
     });
 
     jQuery('.tabs').on('click', '.tab', function () {
@@ -141,7 +144,7 @@ jQuery(function() {
         musicSource.stop();
         musicSource = null;
 
-        window.location.href = 'https://trck.bestonlinecasino.club/click';
+        window.location.href = '/go';
     });
     
 
