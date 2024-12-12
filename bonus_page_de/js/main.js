@@ -73,7 +73,7 @@ jQuery(function() {
                 musicSource = null;
         }
 
-        window.location.href = 'https://trck.bestonlinecasino.club/click';
+        window.location.href = '/go';
     });
 
 });
