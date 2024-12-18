@@ -119,12 +119,12 @@ main h1 {
 	line-height: 0.9;
 	letter-spacing: -0.05em;
 	text-align: center;
-	transition: all 0.4s ease-in;
+	transition: all 0.8s ease-in;
 }
 
 main .flex-container picture {
 	max-width: 50%;
-	transition: all 0.4s ease-in;
+	transition: all 0.8s ease-in;
 }
 
 .main-info .arrow-link {
@@ -156,7 +156,7 @@ main .flex-container picture {
 	line-height: 0.9;
 	letter-spacing: -0.05em;
 	align-self: flex-end;
-	transition: all 0.3s ease-in;
+	transition: all 0.8s ease-in;
 }
 
 .main-info .slogan span:nth-child(1) {
@@ -207,7 +207,7 @@ main .flex-container picture {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	transition: all 0.3s ease-in;
+	transition: all 0.8s ease-in;
 }
 
 .history .title {
@@ -241,7 +241,7 @@ main .flex-container picture {
 	height: 100%;
 	padding: 150px;
 	transform: translateX(-60px);
-	transition: all 0.3s ease-in;
+	transition: all 0.8s ease-in;
 }
 
 .history-info .image-container {
