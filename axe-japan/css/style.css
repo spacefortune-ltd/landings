@@ -229,7 +229,7 @@ body {
 	font-weight: 700;
 	line-height: 21px;
 	padding: 13px 25px;
-	border-radius: 15px; 
+	border-radius: 12px;
 	text-decoration: none;
 	color : #141414;
 }
@@ -270,18 +270,25 @@ body {
 	overflow:hidden;
 }
 
+.banner > .fishes1 {
+	display:none;
+}
+
 .banner .banner-blur {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 30px;
-	background: #FFFFFF1A;
-	box-shadow: 0px -17px 16px 0px #8A00DF40 inset, 0px 4px 40px 0px #00000063;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+	linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%),
+	linear-gradient(134.15deg, rgba(100, 23, 134, 0.1) 21.54%, rgba(100, 23, 134, 0.3) 79.94%);
+	box-shadow: 0px 0px 20px 0px #0000001A;
 	backdrop-filter: blur(30px);
 	-webkit-backdrop-filter: blur(30px);
 	width: 550px;
 	height: 230px;
+	border: 1px solid #64178699;
 }
 
 .banner .banner-text {
@@ -297,44 +304,46 @@ body {
 	text-align: center;
 }
 
-.banner .banner-text .fishes {
+.banner .banner-text > .fishes1 {
 	position:absolute;
-	left: 600px;
+	left: 550px;
 	top: 50%;
-	width: 320px;
+	width: 280px;
 	transform:translateY(-50%);
 }
 
-.fishes .fish3 {
+.fishes1 .fish3 {
 	width: 100%;
 	height: auto;
 }
 
-.fishes .fish1 {
+.fishes1 .fish1 {
 	position:absolute;
 	top:calc(50% + 145px);
 	left: 0;
 	transform:translateX(-100%);
 }
 
-.fishes .fish2 {
+.fishes1 .fish2 {
 	position:absolute;
-	top:calc(50% + 145px);
-	left: 0;
-	transform:translateX(-100%);
+	top:calc(50% - 325px);
+	right: 0;
+	transform:translateX(100%);
 }
 
-.fishes .fishmove {
+.fishes1 .fish1.gif {
+	display:none
+}
+
+.fishes1 .fish2.gif{
+	display:none
+}
+
+.fishes1 .fishmove {
 	position:absolute;
-	top:50%;
+	top:calc(50% - 10px);
 	left:calc(50% + 20px);
 	transform:translate(-50%,-50%);
-}
-
-.banner .banner-text .title {
-	font-weight: 700;
-	line-height: 17px;
-	letter-spacing: 0.02em;
 }
 
 .banner .banner-text .bonus {
@@ -349,17 +358,14 @@ body {
 	line-height: 21px;
 	display: inline-block;
 	padding: 15px 45px;
-	background: #B5E051;
-	border: 1px solid #D9FF81;
-	box-shadow: 0px 4px 24px 0px #0000006E;
+	background: #FF9D3D;
 	text-decoration: none;
-	color: #32343C;
-	border-radius: 15px;
+	color: #141414;
+	border-radius: 12px;
 }
 
 .bonus-btn:hover {
-	background: #C9F661;
-	border: 1px solid #C9F661;
+	opacity:0.9;
 }
 
 
@@ -701,9 +707,14 @@ body {
 @media(max-width: 1350px) {
 
 	.banner .girl {
-		left: -180px;
+		left: -233px;
 		z-index:-1;
 	}
+
+	.banner .banner-text .fishes1 {
+		left: 475px;
+	}
+
 }
 
 @media(max-width: 1250px) {
@@ -717,7 +728,7 @@ body {
 	}
 }
 
-@media(max-width: 980px) {
+@media(max-width: 1050px) {
 
 	.jackpot .girl1 {
 		left: -150px;
@@ -730,33 +741,76 @@ body {
 	.jackpot .jackpot-info {
 		width: 330px;
 	}
+
+	.banner .girl {
+		display:none;
+	}
+
+	.banner .banner-text > .fishes1 {
+		display:none;
+	}
+
+	.banner > .fishes1 {
+		position:absolute;
+		top:50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		display: block;
+		width: 220px;
+	}
+	.bg {
+		z-index: 1;
+	}
+	.banner-blur {
+		z-index: 3;
+	}
+	.banner-text {
+		z-index: 4;
+	}
+
+	.fishes1 .fish1.png {
+		display:none
+	}
+
+	.fishes1 .fish2.png{
+		display:none
+	}
+	.fishes1 .fish1.gif {
+		display:block;
+		max-width: 162px;
+		transform: translateX(-100%) rotate(270deg);
+	}
+
+	.fishes1 .fish2.gif{
+		display:block;
+		max-width: 162px;
+		transform: translateX(-100%) rotate(92deg);
+		top: calc(50% - 288px);
+		right: -315px;
+	}
+
+	.fishes1 .fishmove {
+		display:none;
+	}
 }
 
 @media(max-width: 768px) {
 	.slides {
 		margin-bottom: 30px;
 	}
-	.banner img {
-		object-fit: contain;
-		height: auto;
-	}
+
 	.main {
 		padding-top: 80px;
 	}
 
 	.banner .banner-blur {
-		width: calc(100% - 60px);
+		width: calc(100% - 12px);
 		box-shadow: 0px 4px 40px 0px #00000063;
 	}
 
 	.banner .banner-text {
-		width: calc(100% - 100px);
-	}
-
-	.banner .banner-text .bonus {
-		font-size: 30px;
-		font-weight: 700;
-		line-height: 30px;
+		width: calc(100% - 60px);
 	}
 
 	.bonus-btn {
@@ -844,16 +898,6 @@ body {
 
 @media(max-width: 450px) {
 
-	.banner .banner-blur {
-		top: 160px;
-		transform: translate(-50%, 0);
-	}
-
-	.banner .banner-text {
-		top: 190px;
-		transform: translate(-50%, 0);
-	}
-
 	.banner .banner-text .bonus {
 		letter-spacing: -0.02em;
 	}
@@ -884,12 +928,6 @@ body {
 }
 
 @media(max-width: 410px) {
-
-	.banner .banner-text .bonus{
-		line-height: 24px;
-		font-size: 24px;
-	}
-
 	.banner .banner-blur {
 		height: 200px;
 	}
@@ -899,30 +937,21 @@ body {
 	.header > .container img {
 		max-width: 140px;
 	}
+	.fishes1 .fish2.gif {
+		right: -286px;
+	}
+	.fishes1 .fish1.gif {
+		left:35px;
+	}
+
 }
 
 @media(max-width: 370px) {
 
-	.banner .banner-blur {
-		top: 140px;
-		transform: translate(-50%, 0);
-	}
-
-	.banner .banner-text {
-		top: 170px;
-		transform: translate(-50%, 0);
-	}
 
 }
 
 @media(max-width: 353px) {
 
-	.banner .banner-blur {
-		top: 140px;
-	}
-
-	.banner .banner-text {
-		top: 150px;
-	}
 
 }
