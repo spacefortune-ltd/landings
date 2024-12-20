@@ -381,6 +381,8 @@ body {
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
+	color: #141414;
+	font-weight:700;
 }
 .title-icon .icon {
 	margin-right: 10px;
@@ -497,9 +499,9 @@ body {
 }
 
 .slot-slide {
-	background: #161D42;
+	background: #F2F2F2;
 	padding: 10px;
-	border-radius: 10px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -510,47 +512,54 @@ body {
 	width: 60px;
 	height: 60px;
 	object-fit: cover;
-	border-radius: 10px;
+	border-radius: 12px;
 }
 
 .slot-slide .win-info {
 	margin-left: 8px;
-	text-wrap: nowrap;
 }
 
 .slot-slide .win-info .name {
-	color: #7D829D;
+	color: #999999;
 	font-size: 12px;
 	line-height: 15px;
+	font-weight: 500;
 }
 
 .slot-slide .win-info .win {
 	text-transform: uppercase;
 	font-size: 14px;
-	color: #B5E051;
+	color: #FF9D3D;
+	font-weight: 700;
 }
 
 .slot-slide .win-info .title {
 	font-size: 12px;
 	line-height: 18px; 
-	color: #DEDEDE;
+	color: #141414;
+	font-weight: 500;
 }
 
 .main-info-wrap {
-	background: linear-gradient(91.46deg, #673585 0.14%, #38159C 51.57%, #673585 100%);
-	border-radius: 30px;
-	margin: 2px;
+	border-radius: 16px;
 	flex: 1;
-	padding: 50px 0;
+	padding: 20px 20px 50px 20px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
+.main-info-wrap .sub-title {
+	align-self: flex-end;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 21px;
+}
+
 .main-info {
-	background: linear-gradient(91.44deg, #8E49B6 0.18%, #5931CD 50.76%, #8E49B6 99.55%);
-	border-radius: 30px;
-	box-shadow: 0px 4px 40px 0px #0D1126;
+	background: #641786;
+	border-radius: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -560,7 +569,7 @@ body {
 	font-size: 26px;
 	font-weight: 700;
 	line-height: 39px;
-	color:#DEDEDE;
+	color:#FF9D3D;
 	margin: 0 auto;
 	text-align: start;
 }
@@ -583,7 +592,7 @@ body {
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 21px;
-	color: #7D829D;
+	color: #FFFFFF;
 }
 
 .main-info-wrap ul li span {
@@ -595,34 +604,34 @@ body {
 }
 
 .jackpot {
-	border-radius: 30px;
+	border-radius: 16px;
 	margin: 40px 0;
 	position: relative;
 	overflow: hidden;
 }
 
-.jackpot .bg {
-	height: 250px;
-	border-radius: 30px;
+.jackpot .bg-bonus {
+	height: 400px;
+	border-radius: 16px;
 	width: 100%;
 	object-fit: cover;
 }
 
 .jackpot .girl1 {
 	position: absolute;
-	width: 450px;
+	width: 580px;
 	height: auto;
-	top:-65px;
-	left: 10%;
+	top:-110px;
+	left: 0;
 	z-index: 3;
 }
 
 .jackpot .girl2 {
 	position: absolute;
-	width: 450px;
+	width: 600px;
 	height: auto;
-	top:-65px;
-	right: 10%;
+	bottom:0;
+	right: -110px;
 	z-index: 3;
 }
 
@@ -631,36 +640,59 @@ body {
 	top:50%;
 	left:50%;
 	transform: translate(-50%,-50%);
-	padding:20px;
+	padding:30px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background: #FFFFFF1A;
-	border: 1px solid #FFFFFF1C;
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
+	border: 1px solid #FF9D3D0F;
 	box-shadow: 0px 0px 40px 0px #28003FA6;
-	border-radius: 25px;
+	border-radius: 20px;
 	width: 400px;
 	z-index: 2;
 }
 
-.jackpot .jackpot-info .title {
+.jackpot .jackpot-info:before {
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: "";
+	z-index: -1;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+	linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%),
+	linear-gradient(314.48deg, rgba(255, 157, 61, 0.06) 13.99%, rgba(255, 157, 61, 0.02) 82.71%);
+	border-radius: 20px;
+}
+
+.jackpot .jackpot-info .title, .jackpot .jackpot-info .time {
 	text-transform: uppercase;
 	font-size: 16px;
-	font-weight: 700;
+	font-weight: 400;
 	line-height: 24px;
+	color: #F7C7A9;
+}
+
+.jackpot .jackpot-info .win {
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 54px;
+	color: #FFFFFF;
+	padding: 5px 0 20px 0;
 }
 
 .jackpot .jackpot-info .jackpot-number {
-	margin: 14px 0;
-	background: #20165E3D;
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
-	box-shadow: 0px 3px 6px 0px #00000040 inset;
-	border-radius: 14px;
+	margin: 12px 0 20px 0;
+	background: #FFFFFF;
+	border-radius: 16px;
 	width: 100%;
 	text-align: center;
+	border: 1px solid #F2F2F2;
+	display:flex;
+	align-items:center;
+	padding:0 6px;
 }
 
 .jackpot .jackpot-info .jackpot-number .value {
@@ -670,15 +702,27 @@ body {
 	line-height: 39px;
 	letter-spacing: 0.08em;
 	color: #B5E051;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	min-width : 64px;
 }
 
-.jackpot .jackpot-info .jackpot-number .value .number {
-	padding:10px 0;
-	font-size: 26px;
-	font-weight: 700;
-	line-height: 39px;
-	letter-spacing: 0.08em;
-	color: #B5E051;
+.jackpot .jackpot-info .jackpot-number .value .text {
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: center;
+	color:#C9C9C9;
+}
+
+.jackpot .jackpot-info .jackpot-number .value .numbers  {
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 54px;
+	text-align: center;
+	color: #141414;
 }
 
 .slides {
@@ -818,18 +862,11 @@ body {
 	}
 
 	.main-info-wrap {
-		background: linear-gradient(91.46deg, #101631 0.14%, #38159C 51.57%, #101631 100%);
-		border-radius: 30px;
-		margin: 2px;
-		flex: 1;
-		padding: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		padding: 12px 10px;
 	}
 
-	.main-info {
-		background: #191D44;
+	.main-info-wrap .sub-title {
+		margin-bottom: 8px;
 	}
 
 	.main-info-wrap h1 {
@@ -928,9 +965,6 @@ body {
 }
 
 @media(max-width: 410px) {
-	.banner .banner-blur {
-		height: 200px;
-	}
 	.login-btn {
 		padding: 13px 15px;
 	}
