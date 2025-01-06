@@ -1,0 +1,15 @@
+#DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^.well-known/ - [L,NC]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://olivercasino.com/en-AU/ [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://olivercasino.com/en-AU/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/$ [NC]
+RewriteRule .* /en-AU/ [R=301,L]
