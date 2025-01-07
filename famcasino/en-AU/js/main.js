@@ -10,17 +10,33 @@ jQuery(function() {
 		slidesPerView: 1,
 		breakpoints: {
 			0: {
-				slidesPerView: 2.2,
+				slidesPerView: 1.8,
 				spaceBetween: 10,
 			},
-			768: {
+            400: {
+                slidesPerView: 2.2,
+                spaceBetween: 10,
+            },
+            550: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+            730: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+            },
+			900: {
 				slidesPerView: 5,
-				spaceBetween: 10,
-			},
-			1000: {
-				slidesPerView: 7,
 				spaceBetween: 20,
 			},
+			1150: {
+				slidesPerView: 6,
+				spaceBetween: 20,
+			},
+            1340: {
+                slidesPerView: 7,
+                spaceBetween: 20,
+            },
 		},
 	});
 
