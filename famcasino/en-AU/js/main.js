@@ -40,4 +40,18 @@ jQuery(function() {
 		},
 	});
 
+    let swiper1 = new Swiper('.slider1', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        pagination: {
+            el: '.swiper1-pagination',
+            clickable: true
+        },
+
+        navigation: {
+            nextEl: '.swiper1-button-next',
+            prevEl: '.swiper1-button-prev',
+        },
+    });
 });
