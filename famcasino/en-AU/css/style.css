@@ -637,14 +637,14 @@ body {
 	background: #FDC22E;
 }
 
-.block.protection h2, .block.security h2 {
+.block.protection h2, .block.security h2, .block.start h2, .block.deposits h2 {
 	display: flex;
 	align-items :start;
 	font-size: 20px;
 	line-height: 26px;
 }
 
-.block.protection h2 span,.block.security h2 span {
+.block.protection h2 span,.block.security h2 span, .block.start h2 span, .block.deposits h2 span {
 	flex: 1;
 	margin: 0 0 0 12px;
 }
@@ -756,7 +756,94 @@ body {
 	margin: 0 0 100px 0;
 }
 
+.block.start .cols, .block.start .cols .list + .list {
+	margin: 40px 0 0 0;
+}
 
+.block.start h3 {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 26px;
+}
+
+.block.start ol {
+	display: flex;
+	align-items: center;
+	counter-reset: list;
+}
+
+.block.start ol li {
+	display: flex;
+	flex-direction: column;
+	padding : 20px;
+	border-radius:20px;
+	position:relative;
+	margin: 20px 0 0 0;
+}
+
+.block.start ol.newcomers li {
+	width: calc(100% / 6);
+}
+
+.block.start ol.returning li {
+	width: calc(100% / 4);
+}
+
+.block.start ol li:before {
+	content: counter(list);
+	counter-increment: list;
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 132px;
+	color:#EAAE18;
+}
+
+.block.start ol li:nth-child(odd) {
+	background: linear-gradient(180deg, rgba(18, 17, 31, 0) 0%, #08050F 65.5%, #12111F 100%),
+	linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+	align-self: flex-end;
+}
+
+.block.start ol li:nth-child(odd):after {
+	position: absolute;
+	content:"";
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 20px;
+	z-index: -1;
+}
+
+
+.block.start ol li:nth-child(even) {
+	background: linear-gradient(180deg, #12111F 0%, #08050F 34.5%, rgba(18, 17, 31, 0) 100%);
+	align-self: flex-start;
+}
+
+.block.start ol li:nth-child(even):after {
+	position: absolute;
+	content:"";
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 20px;
+	z-index: -1;
+}
+
+.block.deposits .cols {
+	margin: 40px 0 0 0;
+	display: flex;
+}
+
+.block.deposits .cols .col {
+
+}
 
 .faq {
 	background: #273865;
@@ -1009,6 +1096,19 @@ body {
 	}
 	.block.protection > ul li + li, .block.security > ul li + li {
 		margin: 20px 0 0 0;
+	}
+
+	.block.start ol {
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.block.start ol.newcomers li {
+		width: 50%;
+	}
+
+	.block.start ol.returning li {
+		width: 50%;
 	}
 }
 
