@@ -1,8 +1,12 @@
 jQuery(function() {
 
-	jQuery('.f-question').click(function () {
-		jQuery(this).toggleClass("open").next(".f-answer").slideToggle().parent().siblings().find(".f-answer").slideUp().prev().removeClass("open");
-	});
+    jQuery('.f-question').click(function () {
+        const faqItem = jQuery(this).parent('.faq-item');
+        faqItem.toggleClass("open");
+        faqItem.find(".f-answer").slideToggle();
+
+        faqItem.siblings('.faq-item').removeClass('open').find('.f-answer').slideUp();
+    });
 
 
 	let swiper = new Swiper('.slider', {
