@@ -28,65 +28,33 @@ jQuery(function() {
 		autoplay:{delay: 3000},
 		breakpoints: {
 			0: {
-				slidesPerView: 2.7,
+				slidesPerView: 1.5,
 				spaceBetween: 10,
 			},
-			350: {
+			400: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+			500: {
 				slidesPerView: 3,
 				spaceBetween: 10,
 			},
-			390: {
-				slidesPerView: 3.7,
-				spaceBetween: 10,
-			},
-			431: {
+			680: {
 				slidesPerView: 4,
 				spaceBetween: 10,
 			},
-			470: {
-				slidesPerView: 4.5,
-				spaceBetween: 10,
-			},
-			570: {
+			900: {
 				slidesPerView: 5,
-				spaceBetween: 10,
-			},
-			670: {
-				slidesPerView: 6,
-				spaceBetween: 10,
-			},
-			780: {
-				slidesPerView: 7,
-				spaceBetween: 10,
-			},
-			870: {
-				slidesPerView: 8,
-				spaceBetween: 10,
-			},
-			1000: {
-				slidesPerView: 9,
-				spaceBetween: 10,
+				spaceBetween: 15,
 			},
 			1100: {
-				slidesPerView: 10,
-				spaceBetween: 10,
+				slidesPerView: 6,
+				spaceBetween: 15,
 			},
-			1200: {
-				slidesPerView: 11,
-				spaceBetween: 10,
-			},
-			1300: {
-				slidesPerView: 12,
-				spaceBetween: 10,
-			},
-			1400: {
-				slidesPerView: 13,
-				spaceBetween: 10,
-			},
-			1500: {
-				slidesPerView: 14,
-				spaceBetween: 10,
-			},
+			1351: {
+				slidesPerView: 7,
+				spaceBetween: 25,
+			}
 		},
 	});
 

@@ -220,7 +220,7 @@ body {
 	width: 100%;
 }
 .header > .container img {
-	max-width:165px;
+	max-width:180px;
 }
 .login-btn {
 	background: #FF9D3D;
@@ -286,7 +286,7 @@ body {
 	box-shadow: 0px 0px 20px 0px #0000001A;
 	backdrop-filter: blur(30px);
 	-webkit-backdrop-filter: blur(30px);
-	width: 550px;
+	width: 585px;
 	height: 230px;
 	border: 1px solid #64178699;
 }
@@ -300,7 +300,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	max-width: 490px;
+	max-width: 530px;
 	text-align: center;
 }
 
@@ -389,11 +389,16 @@ body {
 }
 .slot-slides {
 	padding: 40px 20px 130px 20px;
-	background: #192044;
+	background: #641786;
 }
 .slot-slides .container {
 	position: relative;
 	padding: 0;
+	overflow: unset;
+}
+
+.slot-slides .container .title-icon span {
+	color: white;
 }
 
 .slot-slides .container .swiper-container.slider2 {
@@ -445,6 +450,7 @@ body {
 .provider-slides .container {
 	position: relative;
 	padding: 0;
+	overflow: unset;
 }
 
 .provider-slides .container .swiper.slider {
@@ -452,12 +458,10 @@ body {
 }
 
 .provider-slides .slider-btn {
-	background: #FFFFFF33;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
+	background: #E8E8E8;
 	width: 36px;
 	height: 36px;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
 	border-radius: 100%;
@@ -465,10 +469,6 @@ body {
 	position: absolute;
 	top:calc(50% + 25px);
 	transform: translate(0, -50%);
-}
-
-.provider-slides .slider-btn:hover {
-	background: #FFFFFF4D;
 }
 
 .provider-slides .slider-btn.back {
@@ -482,20 +482,20 @@ body {
 }
 
 .provider {
-	background: #1A2140;
-	border-radius: 7px;
-	max-width: 100px;
-	height: 40px;
+	background: #F2F2F2;
+	border-radius: 12px;
+	max-width: 200px;
+	height: 55px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .slider .swiper-slide .provider img {
 	width: auto;
-	max-width: 70px;
+	max-width: calc(100% - 30px);
 	height: auto;
 	box-shadow: none;
-	max-height: 37px;
+	max-height: 45px;
 }
 
 .slot-slide {
@@ -555,10 +555,11 @@ body {
 	font-size: 14px;
 	font-weight: 700;
 	line-height: 21px;
+	color: #641786;
 }
 
 .main-info {
-	background: #641786;
+	background: #F2F2F2;
 	border-radius: 16px;
 	display: flex;
 	align-items: center;
@@ -583,6 +584,7 @@ body {
 	padding: 30px 0 0 0;
 	display: flex;
 	flex-wrap: wrap;
+	color: #141414;
 }
 
 .main-info-wrap ul li {
@@ -592,7 +594,6 @@ body {
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 21px;
-	color: #FFFFFF;
 }
 
 .main-info-wrap ul li span {
@@ -603,188 +604,35 @@ body {
 	margin-left: 60px; 
 }
 
-.jackpot {
-	border-radius: 16px;
-	margin: 40px 0;
-	position: relative;
-	overflow: hidden;
-}
-
-.jackpot .bg-bonus {
-	height: 400px;
-	border-radius: 16px;
-	width: 100%;
-	object-fit: cover;
-}
-
-.jackpot .girl1 {
-	position: absolute;
-	width: 580px;
-	height: auto;
-	top:-110px;
-	left: 0;
-	z-index: 3;
-}
-
-.jackpot .girl2 {
-	position: absolute;
-	width: 600px;
-	height: auto;
-	bottom:0;
-	right: -110px;
-	z-index: 3;
-}
-
-.jackpot .jackpot-info {
-	position: absolute;
-	top:50%;
-	left:50%;
-	transform: translate(-50%,-50%);
-	padding:30px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border: 1px solid #FF9D3D0F;
-	box-shadow: 0px 0px 40px 0px #28003FA6;
-	border-radius: 20px;
-	width: 400px;
-	z-index: 2;
-}
-
-.jackpot .jackpot-info:before {
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	content: "";
-	z-index: -1;
-	background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-	linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%),
-	linear-gradient(314.48deg, rgba(255, 157, 61, 0.06) 13.99%, rgba(255, 157, 61, 0.02) 82.71%);
-	border-radius: 20px;
-}
-
-.jackpot .jackpot-info .title, .jackpot .jackpot-info .time {
-	text-transform: uppercase;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 24px;
-	color: #F7C7A9;
-}
-
-.jackpot .jackpot-info .win {
-	font-size: 36px;
-	font-weight: 500;
-	line-height: 54px;
-	color: #FFFFFF;
-	padding: 5px 0 20px 0;
-}
-
-.jackpot .jackpot-info .jackpot-number {
-	margin: 12px 0 20px 0;
-	background: #FFFFFF;
-	border-radius: 16px;
-	width: 100%;
-	text-align: center;
-	border: 1px solid #F2F2F2;
-	display:flex;
-	align-items:center;
-	padding:0 6px;
-}
-
-.jackpot .jackpot-info .jackpot-number .value {
-	padding:10px 0;
-	font-size: 26px;
-	font-weight: 700;
-	line-height: 39px;
-	letter-spacing: 0.08em;
-	color: #B5E051;
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	justify-content:center;
-	min-width : 64px;
-}
-
-.jackpot .jackpot-info .jackpot-number .value .text {
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 18px;
-	text-align: center;
-	color:#C9C9C9;
-}
-
-.jackpot .jackpot-info .jackpot-number .value .numbers  {
-	font-size: 36px;
-	font-weight: 500;
-	line-height: 54px;
-	text-align: center;
-	color: #141414;
-}
-
 .slides {
-	margin-bottom: 40px;
+	margin: 40px 0;
 	overflow: hidden;
 }
 .slider .swiper-slide img {
 	max-width: 100%;
-	box-shadow: 0px 2px 30px 0px #00000059;
 }
 
 
-
-
-@media(max-width: 1450px) {
-
-	.jackpot .girl1 {
-		left: 3%;
-	}
-
-	.jackpot .girl2 {
-		right: 3%;
-	}
-}
 
 @media(max-width: 1350px) {
 
 	.banner .girl {
-		left: -233px;
+		left: -240px;
 		z-index:-1;
 	}
 
 	.banner .banner-text .fishes1 {
-		left: 475px;
+		left: 510px;
 	}
 
-}
 
-@media(max-width: 1250px) {
-
-	.jackpot .girl1 {
-		left: -70px;
-	}
-
-	.jackpot .girl2 {
-		right: -70px;
+	.provider-slides .slider-btn {
+		display: flex;
 	}
 }
+
 
 @media(max-width: 1050px) {
-
-	.jackpot .girl1 {
-		left: -150px;
-	}
-
-	.jackpot .girl2 {
-		right: -150px;
-	}
-
-	.jackpot .jackpot-info {
-		width: 330px;
-	}
 
 	.banner .girl {
 		display:none;
@@ -836,6 +684,12 @@ body {
 
 	.fishes1 .fishmove {
 		display:none;
+	}
+	.banner .banner-text .bonus {
+		display: flex;
+		flex-direction:column;
+		align-items: center;
+		gap: 6px;
 	}
 }
 
@@ -894,35 +748,6 @@ body {
 
 }
 
-@media(max-width: 700px) {
-
-	.jackpot {
-		width: calc(100% + 40px);
-		margin-left: -20px;
-		border-radius: unset;
-	}
-
-	.jackpot .bg {
-		border-radius: unset;
-	}
-
-	.jackpot .girl1 {
-		width: 200px;
-		top:67px;
-		left: -73px;
-	}
-
-	.jackpot .girl2 {
-		width: 182px;
-		top:67px;
-		right: -57px;
-	}
-
-	.jackpot .jackpot-info {
-		width: 330px;
-	}
-}
-
 @media(max-width: 562px) {
 	.slot-slides .slider-btn {
 		top:calc(50% + 35px);
@@ -958,9 +783,6 @@ body {
 
 @media(max-width: 418px) {
 
-	.provider-slides .slider-btn {
-		top:calc(50% + 35px);
-	}
 
 }
 
