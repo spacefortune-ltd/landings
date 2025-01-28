@@ -443,7 +443,7 @@ body {
 }
 
 .slides.provider-slides {
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 	padding: 0 20px;
 }
 
@@ -455,6 +455,7 @@ body {
 
 .provider-slides .container .swiper.slider {
 	overflow: hidden;
+	width: calc(100% - 50px);
 }
 
 .provider-slides .slider-btn {
@@ -768,15 +769,22 @@ body {
 		width: calc(100% - 60px);
 	}
 
-	.slot-slides .container .swiper-container.slider2, .provider-slides .swiper.slider{
+	.slot-slides .container .swiper-container.slider2 {
 		margin: 0 9px;
 	}
 
-	.slot-slides .slider-btn.back, .provider-slides .slider-btn.back {
+	.slot-slides .slider-btn.back {
 		left:-9px;
 	}
-	.slot-slides .slider-btn.next, .provider-slides .slider-btn.next {
+	.slot-slides .slider-btn.next {
 		right: -9px;
+	}
+
+	.slot-slides .slider-btn.back, .provider-slides .slider-btn.back {
+		left:-20px;
+	}
+	.slot-slides .slider-btn.next, .provider-slides .slider-btn.next {
+		right: -20px;
 	}
 
 }
