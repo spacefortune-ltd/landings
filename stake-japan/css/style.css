@@ -455,7 +455,7 @@ body {
 
 .provider-slides .container .swiper.slider {
 	overflow: hidden;
-	width: calc(100% - 50px);
+	width: 100%;
 }
 
 .provider-slides .slider-btn {
@@ -629,6 +629,10 @@ body {
 
 	.provider-slides .slider-btn {
 		display: flex;
+	}
+
+	.provider-slides .container .swiper.slider {
+		width: calc(100% - 50px);
 	}
 }
 
