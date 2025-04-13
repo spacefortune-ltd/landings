@@ -72,6 +72,7 @@ body {
 	color: #FFFFFF;
 	background: url(../content-img/bg.webp) no-repeat center center/cover;
 	z-index:0;
+	overflow: hidden;
 }
 
 body:after {
@@ -85,6 +86,185 @@ body:after {
 	left: 0;
 }
 
+body .coin1 {
+	position: absolute;
+	top: 155px;
+	left: calc(50% - 560px);
+	width: 127px;
+	transform-style: preserve-3d;
+	transition: transform 2s ease-in-out;
+	z-index: 0;
+}
+
+body.win1 .coin1, body.win2 .coin1, body.win2 .coin1, body.win3 .coin1, body.win4 .coin1, body.win5 .coin1 {
+	animation: coin1move 8s linear infinite;
+	animation-delay: 0.8s;
+}
+
+@keyframes coin1move {
+	0% {
+		top: 155px;
+		transform: rotateY(0);
+	}
+	50% {
+		top: 100px;
+		transform: rotateY(40deg);
+	}
+	100% {
+		top: 155px;
+		transform: rotateY(0);
+	}
+}
+
+body .coin2 {
+	position: absolute;
+	top: 430px;
+	left: calc(50% - 700px);
+	width: 130px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+	z-index: 0;
+}
+
+body.win1 .coin2, body.win2 .coin2, body.win3 .coin2, body.win4 .coin2, body.win5 .coin2 {
+	animation: coin2move 8s linear infinite;
+	animation-delay: 0.8s;
+}
+
+@keyframes coin2move {
+	0% {
+		left: calc(50% - 700px);
+		transform: rotateY(0);
+	}
+	50% {
+		left: calc(50% - 770px);
+		transform: rotateY(-40deg);
+	}
+	100% {
+		left: calc(50% - 700px);
+		transform: rotateY(0);
+	}
+}
+
+body .coin3 {
+	position: absolute;
+	top: 730px;
+	left: calc(50% - 480px);
+	width: 130px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+	z-index: 0;
+}
+
+body.win1 .coin3, body.win2 .coin3, body.win3 .coin3, body.win4 .coin3, body.win5 .coin3 {
+	animation: coin3move 8s linear infinite;
+	animation-delay: 0.8s;
+}
+
+@keyframes coin3move {
+	0% {
+		top: 730px;
+		transform: rotateY(0);
+	}
+	50% {
+		top: 800px;
+		transform: rotateY(40deg);
+	}
+	100% {
+		top: 730px;
+		transform: rotateY(0);
+	}
+}
+
+body .coin4 {
+	position: absolute;
+	top: 145px;
+	left: calc(50% + 430px);
+	width: 130px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+	z-index: 0;
+}
+
+body.win1 .coin4, body.win2 .coin4, body.win3 .coin4, body.win4 .coin4, body.win5 .coin4 {
+	animation: coin4move 8s linear infinite;
+	animation-delay: 0.8s;
+}
+
+@keyframes coin4move {
+	0% {
+		top: 145px;
+		transform: rotateY(0);
+	}
+	50% {
+		top: 80px;
+		transform: rotateY(40deg);
+	}
+	100% {
+		top: 145px;
+		transform: rotateY(0);
+	}
+}
+
+body .coin5 {
+	position: absolute;
+	top: 430px;
+	left: calc(50% + 530px);
+	width: 140px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+	z-index: 0;
+}
+
+body.win1 .coin5, body.win2 .coin5, body.win3 .coin5, body.win4 .coin5, body.win5 .coin5 {
+	animation: coin5move 8s linear infinite;
+	animation-delay: 0.8s;
+}
+
+@keyframes coin5move {
+	0% {
+		left: calc(50% + 530px);
+		transform: rotateY(0);
+	}
+	50% {
+		left: calc(50% + 630px);
+		transform: rotateY(-40deg);
+	}
+	100% {
+		left: calc(50% + 530px);
+		transform: rotateY(0);
+	}
+}
+
+body .coin6 {
+	position: absolute;
+	top: 730px;
+	left: calc(50% + 350px);
+	width: 130px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+	z-index: 0;
+}
+
+body.win1 .coin6, body.win2 .coin6, body.win3 .coin6, body.win4 .coin6, body.win5 .coin6 {
+	animation: coin6move 8s linear infinite;
+	animation-delay: 0.8s;
+}
+
+@keyframes coin6move {
+	0% {
+		top: 730px;
+		transform: rotateY(0);
+	}
+	50% {
+		top: 800px;
+		transform: rotateY(40deg);
+	}
+	100% {
+		top: 730px;
+		transform: rotateY(0);
+	}
+}
 
 button, input, optgroup, select, textarea {
 }
@@ -98,7 +278,7 @@ a {
 }
 
 .container {
-	max-width:1224px;
+	max-width:1228px;
 	padding:0 12px;
 	margin:0 auto;
 	position:relative;
@@ -285,12 +465,124 @@ body.show .overlay {
 	overflow-x: auto;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
-	border: 2px solid #FFFFFF
+	border: 2px solid #FFFFFF;
+	overflow-y: hidden;
+	scroll-behavior: smooth;
+}
+
+.game-field:after {
+	position: absolute;
+	content: "";
+	width: 200px;
+	height: 100%;
+	left: 200px;
+	top:0;
+	background: linear-gradient(180deg, rgba(251, 223, 90, 0) 0%, rgba(255, 225, 89, 0.5) 98.91%);
+	transition: opacity 1s ease-in-out;
+	visibility: hidden;
+	opacity: 0;
+}
+
+body.win1 .game-field:after {
+	visibility: visible;
+	opacity: 1;
+}
+
+body.win2 .game-field:after {
+	left: 400px;
+	visibility: visible;
+	opacity: 1;
+}
+
+body.win3 .game-field:after {
+	visibility: visible;
+	opacity: 1;
+	left: 600px;
+}
+
+body.win4 .game-field:after {
+	visibility: visible;
+	opacity: 1;
+	left: 800px;
+}
+
+body.win5 .game-field:after {
+	visibility: visible;
+	opacity: 1;
+	width: 1000px;
+}
+
+
+.game-field .x10 {
+	position: absolute;
+	top: 155px;
+	left: 234px;
+	width: 140px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+}
+
+.game-field .x20 {
+	position: absolute;
+	top: 155px;
+	left: 434px;
+	width: 140px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+}
+
+.game-field .x30 {
+	position: absolute;
+	top: 155px;
+	left: 634px;
+	width: 140px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+}
+
+.game-field .x50 {
+	position: absolute;
+	top: 155px;
+	left: 834px;
+	width: 140px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease-in-out;
+}
+
+.game-field .x10.turn,
+.game-field .x20.turn,
+.game-field .x30.turn,
+.game-field .x50.turn  {
+	transform: rotateY(360deg)
+}
+
+.game-field .egg {
+	position: absolute;
+	top: 155px;
+	left: 1024px;
+	z-index: 6;
+}
+
+body.win1 .game-field .egg, body.win2 .game-field .egg, body.win3 .game-field .egg, body.win4 .game-field .egg,
+body.win5 .game-field .egg {
+	animation: eggMove 2s ease-in-out infinite;
+	animation-delay: 0.5s;
+}
+
+
+body.win5 .game-field .light {
+	display: none;
+}
+
+.game-field .light {
+	position: absolute;
+	top: 245px;
+	left: 1047px;
 }
 
 .game-field .game-field-bg {
 	border-radius: 40px;
-	min-width: 1200px;
+	width: 1200px;
 	height: 100%;
 	max-width: unset;
 	object-fit: cover;
@@ -321,12 +613,15 @@ body.show .overlay {
 	transition: bottom 0.3s ease;
 }
 
-.game-field .chicken.jump .chicken-legs {
+body.win1 .game-field .chicken .chicken-legs, body.win2 .game-field .chicken .chicken-legs,
+body.win3 .game-field .chicken .chicken-legs, body.win4 .game-field .chicken .chicken-legs,
+body.win5 .game-field .chicken .chicken-legs {
 	animation: chickenLegsMove 1s ease-in-out infinite;
 	animation-delay: 0.5s;
 }
 
-.game-field .chicken.jump {
+body.win1 .game-field .chicken, body.win2 .game-field .chicken, body.win3 .game-field .chicken,
+body.win4 .game-field .chicken ,body.win5 .game-field .chicken {
 	animation: chickenMove 1s ease-in-out infinite;
 	animation-delay: 0.5s;
 }
@@ -336,8 +631,44 @@ body.move1 .game-field .chicken {
 	animation: chickenJump 0.3s ease-in-out;
 }
 
-body.moved1 .game-field .chicken {
+body.win1 .game-field .chicken {
 	left:200px;
+}
+
+body.move2 .game-field .chicken {
+	left:400px;
+	animation: chickenJump 0.3s ease-in-out;
+}
+
+body.win2 .game-field .chicken {
+	left:400px;
+}
+
+body.move3 .game-field .chicken {
+	left:600px;
+	animation: chickenJump 0.3s ease-in-out;
+}
+
+body.win3 .game-field .chicken {
+	left:600px;
+}
+
+body.move4 .game-field .chicken {
+	left:800px;
+	animation: chickenJump 0.3s ease-in-out;
+}
+
+body.win4 .game-field .chicken {
+	left:800px;
+}
+
+body.move5 .game-field .chicken {
+	left:1000px;
+	animation: chickenJump 0.3s ease-in-out;
+}
+
+body.win5 .game-field .chicken {
+	left:1000px;
 }
 
 @keyframes chickenJump {
@@ -357,7 +688,7 @@ body.moved1 .game-field .chicken {
 		bottom: -33px;
 	}
 	50% {
-		bottom: -36px;
+		bottom: -37px;
 	}
 	100% {
 		bottom: -33px;
@@ -369,19 +700,111 @@ body.moved1 .game-field .chicken {
 		bottom:5px;
 	}
 	50% {
-		bottom:8px;
+		bottom:9px;
 	}
 	100% {
 		bottom:5px;
 	}
 }
 
-.go-btn {
-	width:100px;
-	height:30px;
+@keyframes eggMove {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-5deg);
+	}
+	50% {
+		transform: rotate(-10deg);
+		filter: sepia(25%);
+	}
+	75% {
+		transform: rotate(-5deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 0 0 0;
+}
+
+.buttons .go-btn {
+	width:280px;
+	height:60px;
 	cursor:pointer;
 	position: relative;
 	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(87.28deg, #F5D419 0%, #FF4200 100%),
+	linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+	color: #fff;
+	border-radius: 16px;
+	font-weight: 700;
+	font-size: 24px;
+	overflow: hidden;
+}
+
+.buttons .go-btn:before {
+	width: 10px;
+	height: 95px;
+	transform: rotate(15deg);
+	position: absolute;
+	content: "";
+	filter: blur(15px);
+	background:#FFFFFF;
+	left: -20px;
+	animation: pulseButton 2s ease-in-out infinite;
+}
+
+.buttons .go-btn:hover:before {
+	animation-play-state: paused;
+}
+
+.buttons .go-btn:hover {
+	background: linear-gradient(87.28deg, #F5D419 0%, #FF4200 100%),
+	linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+}
+
+@keyframes pulseButton {
+	0% {
+		left: -20px;
+	}
+	20% {
+		left: 300px;
+	}
+	100% {
+		left: 300px;
+	}
+}
+
+.buttons .cash-out {
+	width:280px;
+	height:60px;
+	cursor:pointer;
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 100%);
+	border: 1px solid #FFFFFF33;
+	color: #fff;
+	border-radius: 16px;
+	font-weight: 500;
+	font-size: 24px;
+	overflow: hidden;
+	margin: 0 0 0 40px;
+}
+
+.buttons .cash-out:hover {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
 }
 
 
