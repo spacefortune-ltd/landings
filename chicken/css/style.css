@@ -963,10 +963,10 @@ body.show .buttons {
 			left: -20px;
 		}
 		20% {
-			left: calc(100% + 20px);
+			left: calc(100%);
 		}
 		100% {
-			left: calc(100% + 20px);
+			left: calc(100%);
 		}
 	}
 
